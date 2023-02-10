@@ -47,10 +47,7 @@ class Product:
 
     def assign_process(self):
         # this will add a process obj to the lst of processes
-        processes = []
-        dept = []
-        machines = []
-        labors = []
+
         for i, v in self.route_processed.iterrows():
             # get process code
             department = v["department"]
@@ -58,30 +55,29 @@ class Product:
             machine = v["machine"]
             no_of_cuts = v["no of cuts"]
             op_seq = v["Op Seq"]
+            res_seq = 10
             dept_data = StaticData().get_from_dept(department)
-            process_data = StaticData().get_from_process(
-                dept_data["id"].to_list()[0], process)
-            machine_data = StaticData().get_from_machine(
-                process_data["id"].to_list()[0], machine)
-            labor_data = StaticData().get_from_labor(
-                process_data["id"].to_list()[0])
-            dept.append(dept_data)
-            processes.append(process_data)
-            machines.append(machine_data)
-            labors.append(labor_data)
+            process_data = StaticData().get_from_process( dept_data["id"].to_list()[0], process)
+            if machine!= "NaN":
+                machine_data = StaticData().get_from_machine( process_data["id"].to_list()[0], machine)
 
+            labor_data = StaticData().get_from_labor( process_data["id"].to_list()[0])
+           
+            process = Process(process_data["code"].to_list()[0], op_seq, no_of_cuts)
+            process.assign_department(dept_data["code"].to_list()[0])
+            print(f"machine is {type(machine)}")
+            if machine!= "NaN":
+                process.assign_machine(machine_data["code"].to_list()[0], 1, res_seq)
+                res_seq +=10
+            
+            for il,vl in labor_data.iterrows():            
+                process.assign_labor(vl["code"] , 1,res_seq )
+                res_seq +=10
 
-        # process = Process(
-        # process_matrix["process"]["code"], process_matrix["process"]["sequence"])
-
-        # this step should be done once in the main app
-        # process.get_process_factors("path_to_factors_Sheet")
-        # process.assign_department("dept_code")
-        #process.assign_machine("machine_code", "no_of_resource", "res seq")
-        #process.assign_labor("labor code", "no of resource", "res seq")
-        # process.calc_rate()
-        # after initializing process append it to the lst of processes for the current code
-        # self.lst_of_processes.append(process)
+        
+            process.calc_rate()
+            # after initializing process append it to the lst of processes for the current code
+            self.lst_of_processes.append(process)
 
     def get_locator(self):
         # by getting the last op dept and then getting its wip
@@ -122,24 +118,32 @@ class Product:
         lst_of_resource_data = []
 
         for process in self.lst_of_processes:
+            try:
+                resource_data = {
+                    "Part Code": self.code,
+                    "Description":self.description,
+                    "Operation Sequence": process.op_seq,
+                    "Resource Sequence": process.machine.res_seq,
+                    "Resource Code": process.machine.code,
+                    "Assigned Units": process.machine.no_of_resource,
+                    "Inverse": process.machine.rate,
+
+                }
+                lst_of_resource_data.append(resource_data)
+
+            except:
+                pass
+
+
             resource_data = {
                 "Part Code": self.code,
-                "Operation Sequence": process.op_seq,
-                "Resource Sequence": process.machine.res_seq,
-                "Resource Code": process.machine.code,
-                "Inverse": process.machine.rate,
-                "Assigned Units": process.machine.no_of_resource
-            }
-
-            lst_of_resource_data.append(resource_data)
-
-            resource_data = {
-                "Part Code": self.code,
+                "Description":self.description,
                 "Operation Sequence": process.op_seq,
                 "Resource Sequence": process.labor.res_seq,
                 "Resource Code": process.labor.code,
+                "Assigned Units": process.labor.no_of_resource,
                 "Inverse": process.labor.rate,
-                "Assigned Units": process.labor.no_of_resource
+
             }
             lst_of_resource_data.append(resource_data)
 
@@ -162,19 +166,19 @@ class Product:
             route = {}
             if "dept" in v["level_1"]:
                 route["department"] = v[0]
-                route["Op Seq"] = v["level_1"][-1]
+                route["Op Seq"] = int(v["level_1"][-1])*10
 
             if "process" in v["level_1"]:
                 route["process"] = v[0]
-                route["Op Seq"] = v["level_1"][-1]
+                route["Op Seq"] = int(v["level_1"][-1])*10
 
             if "machine" in v["level_1"]:
                 route["machine"] = v[0]
-                route["Op Seq"] = v["level_1"][-1]
+                route["Op Seq"] = int(v["level_1"][-1])*10
 
             if "no" in v["level_1"]:
                 route["no of cuts"] = v[0]
-                route["Op Seq"] = v["level_1"][-1]
+                route["Op Seq"] = int(v["level_1"][-1])*10
             self.route_processed.append(route)
         self.route_processed = pd.DataFrame(self.route_processed)
         self.route_processed = self.route_processed.dropna(subset=["Op Seq"])
@@ -246,12 +250,13 @@ class Bom:
 class Department:
     def __init__(self, code) -> None:
         self.code = code
+        self.data = StaticData().get_from_dept_by_code(self.code)
 
     def get_wip(self):
         # get sheet for each dept wip
         # Filter on for current dept
         # return wip value
-        return "WIP"
+        return self.data["wip"].to_list()[0]
 
 
 class Machine:
@@ -307,17 +312,21 @@ class Process:
         # after calc rate
         # assign min order qty
         # value of multiple of 50 near the calc_rate
-        self.rate = "rate" / self.no_of_cuts
-        self.min_order_qty = "min order qty"
+        self.rate = 100 / self.no_of_cuts
+        self.min_order_qty = 100
         # assign rate for machine and labor
-        self.machine.assign_rate(self.rate)
+        try:
+            self.machine.assign_rate(self.rate)
+        except:
+            pass
+
         self.labor.assign_rate(self.rate)
 
 
 class Routing:
-    def __init__(self) -> None:
+    def __init__(self,products) -> None:
         # this class to interact with Excel and Bom and product
-        pass
+        self.products = products
 
     def get_route_df_before(self):
         # get route df from Bom before filling it from User
@@ -334,17 +343,31 @@ class Routing:
     def get_wip_data(self):
         # this will get wip data for each product
         # aggregate data into a list or dataframe
-        pass
-
+        lst_of_wip_data = []
+        for product in self.products:
+            lst_of_wip_data.append(product.get_wip_data())
+        wip_df = pd.DataFrame(lst_of_wip_data)
+        return wip_df
     def get_operation_data(self):
         # this will get operation data for each product
         # aggregate data into a list or dataframe
-        pass
+        lst_of_operations = []
+        for product in self.products:
+            lst_of_operations+=product.get_operation_data()
+            
+        operation_df = pd.DataFrame(lst_of_operations)
+        return operation_df
+
 
     def get_resource_data(self):
         # this will get resource data for each product
         # aggregate data into a list or dataframe
-        pass
+        lst_of_resources = []
+        for product in self.products:
+            lst_of_resources+= product.get_resource_data()
+
+        resource_df = pd.DataFrame(lst_of_resources)
+        return resource_df
 
 
 class StaticData:
@@ -380,6 +403,10 @@ class StaticData:
         self.process_factors_df = self.wb.sheets["rates"].range("A1:D300").options(
             pd.DataFrame, expand='table', index=False).value
         self.process_factors_df.dropna(inplace=True)
+
+    def get_from_dept_by_code(self,code):
+        filtered_data = self.dept_df[self.dept_df["code"] == code]
+        return filtered_data
 
     def get_from_dept(self, dept_desc):
         filtered_data = self.dept_df[self.dept_df["description"] == dept_desc]
