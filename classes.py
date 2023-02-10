@@ -3,11 +3,13 @@
 
 
 # imports
+import glob
+import os
 import pandas as pd
-
+import xlwings as xw
 
 class Product:
-    def __init__(self, code, description, main_category, sub_category, minor_category, item_type, weight, length, width, thickness, comp_qty, make_buy, status, raw_material=None, locator=None) -> None:
+    def __init__(self, code, description, main_category, sub_category, minor_category, item_type, weight, length, width, thickness, comp_qty, status, raw_material=None, locator=None) -> None:
 
         # main attirbutes
         self.code = code
@@ -28,7 +30,6 @@ class Product:
         self.comp_qty = comp_qty
 
         # status attributes
-        self.make_buy = make_buy
         self.status = status
 
         # raw material
@@ -43,9 +44,10 @@ class Product:
                           self.length, self.width, self.thickness, self.weight, self.comp_qty]
         return product_vector
 
-    def assign_process(self, code, op_seq):
+    def assign_process(self, process_matrix):
         # this will add a process obj to the lst of processes
-        process = Process(code, op_seq)
+        process = Process(
+            process_matrix["process"]["code"], process_matrix["process"]["sequence"])
 
         # this step should be done once in the main app
         process.get_process_factors("path_to_factors_Sheet")
@@ -120,15 +122,10 @@ class Product:
 
 
 class Bom:
-    def __init__(self, bom_file) -> None:
+    def __init__(self, bom_df) -> None:
         # in this class i will get bom excel sheet and extract products and raw material from it.
-
         # bom_file is the file path for bom
-        self.bom_file = bom_file
-
-    def get_bom_df(self):
-        # - convert bom_file to dataframe
-        self.bom_df = pd.read_excel(self.bom_file)
+        self.bom_df = bom_df
 
     def get_lst_of_products(self):
         # - each line will contain a data of a product
@@ -137,11 +134,42 @@ class Bom:
         # inialize products
         # append to lst_of_products
         # return list for products
+        parts_code_start = ["422", "322", "522"]
         lst_of_products = []
+        for i, v in self.bom_df.iterrows():
+            if (v["Comp Item Type"] == "Part") or (v["Component Item"][:3] in parts_code_start):
+                product = Product(v["Component Item"], v["Comp Desc"], v["Comp Major Category"], v["Comp Sub Category"], v["Comp Minor Category"], v["Comp Item Type"],
+                                  v["Calc Unit Weight"], v["Comp Unit Length"], v["Comp Unit Width"], v["Comp Unit Height"], v["Comp Qty"], v["Comp Item Status"], v["Related Item"])
+                lst_of_products.append(product)
+        return lst_of_products
 
     def get_route_df(self):
         # in this function i will return data to enable user to assign factory, process, machine, no of labors
-        pass
+        lst_of_route_items = []
+
+        parent_code = self.bom_df["Top Parent"].to_list()[0]
+        parent_desc = self.bom_df["Parent Description"].to_list()[0]
+        lst_of_route_items.append({
+            "item code": parent_code,
+            "item description": parent_desc,
+            "material description": "-"
+        })
+
+        # sort bom df by code
+        # self.bom_df = self.bom_df.sort_values(by=parent_code)
+
+        for i, v in self.bom_df.iterrows():
+            if (v["Component Item"].startswith("RE")):
+                continue
+            item_dict = {
+                "item code": v["Component Item"],
+                "item description": v["Comp Desc"],
+                "material description": v["Related Desc"]
+            }
+            lst_of_route_items.append(item_dict)
+        route_df = pd.DataFrame(lst_of_route_items)
+
+        return route_df
 
 
 class Department:
@@ -176,11 +204,12 @@ class Labor:
 
 
 class Process:
-    def __init__(self, code, op_seq, min_order_qty=None, wip=None) -> None:
+    def __init__(self, code, op_seq, no_of_cuts, min_order_qty=None, wip=None) -> None:
         self.code = code
         self.op_seq = op_seq
         self.min_order_qty = min_order_qty
         self.wip = wip
+        self.no_of_cuts = no_of_cuts
 
     def get_process_factors(self, factors_sheet):
         # get factors to calc process cycle time
@@ -207,7 +236,7 @@ class Process:
         # after calc rate
         # assign min order qty
         # value of multiple of 50 near the calc_rate
-        self.rate = "rate"
+        self.rate = "rate" / self.no_of_cuts
         self.min_order_qty = "min order qty"
         # assign rate for machine and labor
         self.machine.assign_rate(self.rate)
@@ -216,5 +245,168 @@ class Process:
 
 class Routing:
     def __init__(self) -> None:
-        # this class to transform data into suitable format for oracle
+        # this class to interact with Excel and Bom and product
+        pass
+
+    def get_route_df_before(self):
+        # get route df from Bom before filling it from User
+        pass
+
+    def get_route_df_after(self):
+        # get route df from excel after user assigned everything
+        pass
+
+    def get_process_matrix(self):
+        # after getting route df process it to provide process matrix for products which will enable product to assign dept, process, machines, labors
+        pass
+
+    def get_wip_data(self):
+        # this will get wip data for each product
+        # aggregate data into a list or dataframe
+        pass
+
+    def get_operation_data(self):
+        # this will get operation data for each product
+        # aggregate data into a list or dataframe
+        pass
+
+    def get_resource_data(self):
+        # this will get resource data for each product
+        # aggregate data into a list or dataframe
+        pass
+
+
+class StaticData:
+    def __init__(self):
+        self.wb = xw.Book.Caller()
+        
+    def load_department_excel(self):
+        df = self.wb.sheets["department"].range("A1:c100").options(
+        pd.DataFrame, expand='table', index=False).value
+        df.dropna(inplace=True)
+        return df
+
+    def load_process_excel(self, path):
+        df = self.wb.sheets["operations"].range("A1:E300").options(
+        pd.DataFrame, expand='table', index=False).value
+        df.dropna(inplace=True)
+        return df
+
+    def load_machines_excel(self, path):
+        df = self.wb.sheets["machines"].range("A1:D300").options(
+        pd.DataFrame, expand='table', index=False).value
+        df.dropna(inplace=True)
+        return df
+
+    def load_labors_excel(self, path):
+        df = self.wb.sheets["labors"].range("A1:D300").options(
+        pd.DataFrame, expand='table', index=False).value
+        df.dropna(inplace=True)
+        return df
+
+    def load_process_factors_excel(self, path):
+        df = self.wb.sheets["rates"].range("A1:D300").options(
+        pd.DataFrame, expand='table', index=False).value
+        df.dropna(inplace=True)
+        return df
+    def get_from_dept(self, dept_code):
+        filtered_data = self.dept_df[self.dept_df["code"] == dept_code]
+        return filtered_data
+
+    def get_from_process(self, process_code):
+        filtered_data = self.process_df[self.process_df["code"]
+                                        == process_code]
+        return filtered_data
+
+    def get_from_machine(self, machine_code):
+        filtered_data = self.machine_df[self.machine_df["code"]
+                                        == machine_code]
+        return filtered_data
+
+    def get_from_labor(self, labor_code):
+        filtered_data = self.labor_df[self.labor_df["code"] == labor_code]
+        return filtered_data
+
+    def get_from_process_factors(self, id):
+        filtered_data = self.process_factors_df[self.process_factors_df["code"] == id]
+        return filtered_data
+
+
+class Dataloader:
+    def __init__(self) -> None:
+        # this is a class to get tables from excel and load it in oracle data loader
+        pass
+
+    def get_tables(self):
+        # get tables from excel
+        pass
+
+    def load_dataloader(self):
+        # laod dl
+        pass
+
+
+class ExcelHandler:
+    # this class will be the interface to communicate with Excel
+    # will get all the required data and provide all the required data
+
+    def __init__(self) -> None:
+        self.cwd = __location__ = os.path.realpath(
+            os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
+    def get_parent_items(self, main_df):
+        # load items from xlsx
+        main_df = main_df.dropna()
+        self.parent_items = []
+        for i, v in main_df.iterrows():
+            self.parent_items.append(v["Items Code"])
+
+        print(self.parent_items)
+
+    def get_last_10_modified_xlsx_files(self, folder_path):
+        all_xlsx_files = glob.glob(os.path.join(folder_path, '*.xlsx'))
+        all_xlsx_files.sort(key=lambda x: os.path.getmtime(x), reverse=True)
+        return all_xlsx_files[:10]
+
+    def get_bom_data(self):
+        # load bom excels and save it in a lst of dataframes
+        # return lst of dataframes
+        boms_pth = self.cwd + "\\" + "boms"
+
+        # load only xlsx files from this folder
+        last_10_modified_xlsx_files = self.get_last_10_modified_xlsx_files(
+            boms_pth)
+
+        # filter the last 10 by items in main sheet
+        # lst of bom data
+        bom_data = []
+
+        for bom in last_10_modified_xlsx_files:
+            bom_df = pd.read_excel(bom)
+            print(bom_df)
+            try:
+                if bom_df["Top Parent"].to_list()[0] in self.parent_items:
+                    bom_data.append(bom_df)
+            except:
+                continue
+        return bom_data
+
+    def get_route_data_before(self):
+        # this will get route data before filling from route class and store it in a list of dataframes
+        pass
+
+    def get_route_data_after(self):
+        # this will get route data after filling from excel sheet
+        pass
+
+    def get_wip_table(self):
+        # this will get wip tables and store it in a list of dataframes
+        pass
+
+    def get_operation_table(self):
+        # this will get operation tables and store it in a list of dataframes
+        pass
+
+    def get_resource_table(self):
+        # this will get resource tables and store it in a list of dataframes
         pass
