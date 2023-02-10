@@ -7,19 +7,24 @@ static_data = StaticData()
 lst_of_bom_obj = []
 lst_of_products = []
 lst_of_route_df_before = []
-
+lst_of_route_df_after = []
 
 # this is how to run python in excel macro
 # RunPython "import RouteSheet; RouteSheet.bom_to_route()"
 
 # this will get items in the main sheet in route excel
+
+
+# wb caller declared once
+wb = xw.Book.caller()
+
+
 @xw.func
 def main():
     # loading excel handler class
     excelHandler = ExcelHandler()
 
     # load excel workbook main sheet
-    wb = xw.Book.caller()
     items = wb.sheets["main"].range("A1:c11").options(
         pd.DataFrame, expand='table', index=False).value
     items = items.dropna()
@@ -46,7 +51,6 @@ def main():
 
 @xw.func
 def get_route_data1():
-    wb = xw.Book.caller()
     sheet = wb.sheets["Item1"]
     parent = sheet.range("A2").value
     route = lst_of_route_df_before[0]
@@ -60,3 +64,20 @@ def get_route_data1():
         index=False, expand='table', header=False).value = route
     sheet.range("A:A").number_format = '0'
     sheet.range("c:c").number_format = '0'
+
+
+def get_item_data1():
+    # get routing after
+    sheet = wb.sheets["Item1"]
+    route = sheet.range("A3:BA203").options(
+        pd.DataFrame, expand='table',  index=False).value
+    route.dropna(subset= ["dept1"],inplace=True)
+
+    # need to remove the last one if the same button clicked again tbs
+    lst_of_route_df_after.append(route)
+    for product in lst_of_products[0]:
+        product_route = route[route["item code"]==float(product.code)] 
+        product.get_route(product_route)
+        print(f"product code:{product.code}")
+        print(f"product route: \n{product.route_processed}")
+        product.assign_process()

@@ -8,6 +8,7 @@ import os
 import pandas as pd
 import xlwings as xw
 
+
 class Product:
     def __init__(self, code, description, main_category, sub_category, minor_category, item_type, weight, length, width, thickness, comp_qty, status, raw_material=None, locator=None) -> None:
 
@@ -44,19 +45,43 @@ class Product:
                           self.length, self.width, self.thickness, self.weight, self.comp_qty]
         return product_vector
 
-    def assign_process(self, process_matrix):
+    def assign_process(self):
         # this will add a process obj to the lst of processes
-        process = Process(
-            process_matrix["process"]["code"], process_matrix["process"]["sequence"])
+        processes = []
+        dept = []
+        machines = []
+        labors = []
+        for i, v in self.route_processed.iterrows():
+            # get process code
+            department = v["department"]
+            process = v["process"]
+            machine = v["machine"]
+            no_of_cuts = v["no of cuts"]
+            op_seq = v["Op Seq"]
+            dept_data = StaticData().get_from_dept(department)
+            process_data = StaticData().get_from_process(
+                dept_data["id"].to_list()[0], process)
+            machine_data = StaticData().get_from_machine(
+                process_data["id"].to_list()[0], machine)
+            labor_data = StaticData().get_from_labor(
+                process_data["id"].to_list()[0])
+            dept.append(dept_data)
+            processes.append(process_data)
+            machines.append(machine_data)
+            labors.append(labor_data)
+
+
+        # process = Process(
+        # process_matrix["process"]["code"], process_matrix["process"]["sequence"])
 
         # this step should be done once in the main app
-        process.get_process_factors("path_to_factors_Sheet")
-        process.assign_department("dept_code")
-        process.assign_machine("machine_code", "no_of_resource", "res seq")
-        process.assign_labor("labor code", "no of resource", "res seq")
-        process.calc_rate()
+        # process.get_process_factors("path_to_factors_Sheet")
+        # process.assign_department("dept_code")
+        #process.assign_machine("machine_code", "no_of_resource", "res seq")
+        #process.assign_labor("labor code", "no of resource", "res seq")
+        # process.calc_rate()
         # after initializing process append it to the lst of processes for the current code
-        self.lst_of_processes.append(process)
+        # self.lst_of_processes.append(process)
 
     def get_locator(self):
         # by getting the last op dept and then getting its wip
@@ -120,6 +145,46 @@ class Product:
 
         return lst_of_resource_data
 
+    def get_route(self, df):
+        self.route = df.set_index("item code").stack().reset_index()
+        self.get_route_json()
+
+    def get_route_json(self):
+        self.route_processed = []
+
+        route_dict = {
+            "department": "dept1",
+            "process": "process1",
+            "machine": "machine1",
+            "no of cuts": "no1"
+        }
+        for i, v in self.route.iterrows():
+            route = {}
+            if "dept" in v["level_1"]:
+                route["department"] = v[0]
+                route["Op Seq"] = v["level_1"][-1]
+
+            if "process" in v["level_1"]:
+                route["process"] = v[0]
+                route["Op Seq"] = v["level_1"][-1]
+
+            if "machine" in v["level_1"]:
+                route["machine"] = v[0]
+                route["Op Seq"] = v["level_1"][-1]
+
+            if "no" in v["level_1"]:
+                route["no of cuts"] = v[0]
+                route["Op Seq"] = v["level_1"][-1]
+            self.route_processed.append(route)
+        self.route_processed = pd.DataFrame(self.route_processed)
+        self.route_processed = self.route_processed.dropna(subset=["Op Seq"])
+        grouped = self.route_processed.groupby("Op Seq")
+
+        # Aggregate the data in each group as desired
+        aggregated = grouped.agg(lambda x: x.value_counts(
+        ).index[0] if x.notnull().any() else "NaN").reset_index()
+        self.route_processed = aggregated.copy()
+
 
 class Bom:
     def __init__(self, bom_df) -> None:
@@ -134,9 +199,15 @@ class Bom:
         # inialize products
         # append to lst_of_products
         # return list for products
-        parts_code_start = ["422", "322", "522"]
+        parts_code_start = ["622", "422", "322", "522"]
         lst_of_products = []
+        parent_added = False
         for i, v in self.bom_df.iterrows():
+            if parent_added == False:
+                parent = Product(v["Top Parent"], v["Parent Description"], None, None, None, None, self.bom_df["Calc Unit Weight"].sum(
+                ), self.bom_df["Comp Unit Length"].max(), self.bom_df["Comp Unit Width"].max(), None, None, v["Parent Item Status"])
+                lst_of_products.append(parent)
+                parent_added = True
             if (v["Comp Item Type"] == "Part") or (v["Component Item"][:3] in parts_code_start):
                 product = Product(v["Component Item"], v["Comp Desc"], v["Comp Major Category"], v["Comp Sub Category"], v["Comp Minor Category"], v["Comp Item Type"],
                                   v["Calc Unit Weight"], v["Comp Unit Length"], v["Comp Unit Width"], v["Comp Unit Height"], v["Comp Qty"], v["Comp Item Status"], v["Related Item"])
@@ -278,53 +349,56 @@ class Routing:
 
 class StaticData:
     def __init__(self):
-        self.wb = xw.Book.Caller()
-        
+        self.wb = xw.Book.caller()
+        self.load_department_excel()
+        self.load_process_excel()
+        self.load_machines_excel()
+        self.load_labors_excel()
+        self.load_process_factors_excel()
+
     def load_department_excel(self):
-        df = self.wb.sheets["department"].range("A1:c100").options(
-        pd.DataFrame, expand='table', index=False).value
-        df.dropna(inplace=True)
-        return df
+        self.dept_df = self.wb.sheets["department"].range("A1:c100").options(
+            pd.DataFrame, expand='table', index=False).value
+        self.dept_df.dropna(inplace=True)
 
-    def load_process_excel(self, path):
-        df = self.wb.sheets["operations"].range("A1:E300").options(
-        pd.DataFrame, expand='table', index=False).value
-        df.dropna(inplace=True)
-        return df
+    def load_process_excel(self):
+        self.process_df = self.wb.sheets["operations"].range("A1:E300").options(
+            pd.DataFrame, expand='table', index=False).value
+        self.process_df.dropna(inplace=True)
 
-    def load_machines_excel(self, path):
-        df = self.wb.sheets["machines"].range("A1:D300").options(
-        pd.DataFrame, expand='table', index=False).value
-        df.dropna(inplace=True)
-        return df
+    def load_machines_excel(self):
+        self.machine_df = self.wb.sheets["machines"].range("A1:D300").options(
+            pd.DataFrame, expand='table', index=False).value
+        self.machine_df.dropna(inplace=True)
 
-    def load_labors_excel(self, path):
-        df = self.wb.sheets["labors"].range("A1:D300").options(
-        pd.DataFrame, expand='table', index=False).value
-        df.dropna(inplace=True)
-        return df
+    def load_labors_excel(self):
+        self.labor_df = self.wb.sheets["labors"].range("A1:D300").options(
+            pd.DataFrame, expand='table', index=False).value
+        self.labor_df.dropna(inplace=True)
 
-    def load_process_factors_excel(self, path):
-        df = self.wb.sheets["rates"].range("A1:D300").options(
-        pd.DataFrame, expand='table', index=False).value
-        df.dropna(inplace=True)
-        return df
-    def get_from_dept(self, dept_code):
-        filtered_data = self.dept_df[self.dept_df["code"] == dept_code]
+    def load_process_factors_excel(self):
+        self.process_factors_df = self.wb.sheets["rates"].range("A1:D300").options(
+            pd.DataFrame, expand='table', index=False).value
+        self.process_factors_df.dropna(inplace=True)
+
+    def get_from_dept(self, dept_desc):
+        filtered_data = self.dept_df[self.dept_df["description"] == dept_desc]
         return filtered_data
 
-    def get_from_process(self, process_code):
-        filtered_data = self.process_df[self.process_df["code"]
-                                        == process_code]
+    def get_from_process(self, dept_id, operation_desc):
+        print(f"op: {operation_desc}")
+        print(f"dept: {dept_id}")
+        filtered_data = self.process_df[(self.process_df["description"] == operation_desc) & (
+            self.process_df["department id"] == dept_id)]
         return filtered_data
 
-    def get_from_machine(self, machine_code):
-        filtered_data = self.machine_df[self.machine_df["code"]
-                                        == machine_code]
+    def get_from_machine(self, process_id, machine_desc):
+        filtered_data = self.machine_df[(self.machine_df["description"] == machine_desc) & (
+            self.machine_df["operation id"] == process_id)]
         return filtered_data
 
-    def get_from_labor(self, labor_code):
-        filtered_data = self.labor_df[self.labor_df["code"] == labor_code]
+    def get_from_labor(self, process_id):
+        filtered_data = self.labor_df[self.labor_df["operation id"] == process_id]
         return filtered_data
 
     def get_from_process_factors(self, id):
@@ -383,7 +457,6 @@ class ExcelHandler:
 
         for bom in last_10_modified_xlsx_files:
             bom_df = pd.read_excel(bom)
-            print(bom_df)
             try:
                 if bom_df["Top Parent"].to_list()[0] in self.parent_items:
                     bom_data.append(bom_df)
