@@ -7,10 +7,11 @@ import glob
 import os
 import pandas as pd
 import xlwings as xw
+from collections import Counter
 
 
 class Product:
-    def __init__(self, code, description, main_category, sub_category, minor_category, item_type, weight, length, width, thickness, comp_qty, status, raw_material=None, locator=None) -> None:
+    def __init__(self, code, description, main_category, sub_category, minor_category, item_type, weight, length, width, thickness, comp_qty, status, raw_material=None, locator=None,paint_qty =None,thinner_qty = None,galv_qty=None,welding_qty=None,) -> None:
 
         # main attirbutes
         self.code = code
@@ -27,6 +28,14 @@ class Product:
         self.width = width
         self.thickness = thickness
 
+        # Paint data
+        self.paint_qty = paint_qty
+        self.thinner_qty = thinner_qty
+        self.galv_qty = galv_qty
+
+        # welding data 
+        self.welding_qty = welding_qty
+
         # manufacturing related attributes
         self.comp_qty = comp_qty
 
@@ -42,7 +51,8 @@ class Product:
     def get_product_vector(self,):
         # this will return product vector to calculate process cycle time
         product_vector = [self.main_category, self.sub_category, self.minor_category,
-                          self.length, self.width, self.thickness, self.weight, self.comp_qty]
+                          self.length, self.width, self.thickness, self.weight, self.comp_qty,
+                          self.paint_qty,self.thinner_qty, self.galv_qty, self.weld_qty]
         return product_vector
 
     def assign_process(self):
@@ -75,7 +85,7 @@ class Product:
                 res_seq +=10
 
         
-            process.calc_rate()
+            process.calc_rate(self.get_product_vector())
             # after initializing process append it to the lst of processes for the current code
             self.lst_of_processes.append(process)
 
@@ -118,34 +128,34 @@ class Product:
         lst_of_resource_data = []
 
         for process in self.lst_of_processes:
-            try:
+
+            if len(process.machines)>=1:
+                for machine in process.machines:
+                    resource_data = {
+                        "Part Code": self.code,
+                        "Description":self.description,
+                        "Operation Sequence": process.op_seq,
+                        "Resource Sequence": machine.res_seq,
+                        "Resource Code": machine.code,
+                        "Assigned Units": machine.no_of_resource,
+                        "Inverse": machine.rate,
+
+                    }
+                    lst_of_resource_data.append(resource_data)
+
+
+            for labor in process.labors:
                 resource_data = {
                     "Part Code": self.code,
                     "Description":self.description,
                     "Operation Sequence": process.op_seq,
-                    "Resource Sequence": process.machine.res_seq,
-                    "Resource Code": process.machine.code,
-                    "Assigned Units": process.machine.no_of_resource,
-                    "Inverse": process.machine.rate,
+                    "Resource Sequence": labor.res_seq,
+                    "Resource Code": labor.code,
+                    "Assigned Units": labor.no_of_resource,
+                    "Inverse": labor.rate,
 
                 }
                 lst_of_resource_data.append(resource_data)
-
-            except:
-                pass
-
-
-            resource_data = {
-                "Part Code": self.code,
-                "Description":self.description,
-                "Operation Sequence": process.op_seq,
-                "Resource Sequence": process.labor.res_seq,
-                "Resource Code": process.labor.code,
-                "Assigned Units": process.labor.no_of_resource,
-                "Inverse": process.labor.rate,
-
-            }
-            lst_of_resource_data.append(resource_data)
 
         return lst_of_resource_data
 
@@ -210,6 +220,16 @@ class Bom:
             if parent_added == False:
                 parent = Product(v["Top Parent"], v["Parent Description"], None, None, None, None, self.bom_df["Calc Unit Weight"].sum(
                 ), self.bom_df["Comp Unit Length"].max(), self.bom_df["Comp Unit Width"].max(), None, None, v["Parent Item Status"])
+                for ix,vx in self.bom_df.iterrows():
+                    if vx["Comp Sub Category"] == "سلك اللحام":
+                        parent.welding_qty += vx["Comp Qty"]
+                    elif vx["Comp Sub Category"] == "البويات":
+                        parent.paint_qty += vx["Comp Qty"]
+                    elif vx["Comp Sub Category"] == "تنر":
+                        parent.thinner_qty = vx["Comp Qty"]
+                    elif vx["Comp Sub Category"] == "جلفنة": # I should recheck this condition 
+                        parent.galv_qty == vx["Comp Qty"]
+
                 lst_of_products.append(parent)
                 parent_added = True
             if (v["Comp Item Type"] == "Part") or (v["Component Item"][:3] in parts_code_start):
@@ -286,12 +306,18 @@ class Process:
         self.min_order_qty = min_order_qty
         self.wip = wip
         self.no_of_cuts = no_of_cuts
+        self.machines = []
+        self.labors = []
 
-    def get_process_factors(self, factors_sheet):
+    def get_process_factors(self):
         # get factors to calc process cycle time
         # factors sheet is a path for excel
-
-        factors_df = pd.read_excel(factors_sheet)
+        if len(self.machines) >1 :
+            machine_code = self.machines[0].code 
+        else:
+            machine_code = None
+        
+        factors_df = StaticData().get_from_process_factors(self.code, machine_code)
         return factors_df
 
     def assign_department(self, dept_code):
@@ -302,25 +328,50 @@ class Process:
         self.wip = self.department.get_wip()
 
     def assign_machine(self, machine_code, no_of_resource, res_seq):
-        self.machine = Machine(machine_code, no_of_resource, res_seq)
+        machine = Machine(machine_code, no_of_resource, res_seq)
+        self.machines.append(machine)
 
     def assign_labor(self, labor_code, no_of_resource, res_seq):
-        self.labor = Labor(labor_code, no_of_resource, res_seq)
+        labor = Labor(labor_code, no_of_resource, res_seq)
+        self.labors.append(labor)
 
-    def calc_rate(self):
+    def check_no_of_resource(self,no=None):
+        try:
+            for machine in self.machines:
+                machine.no_of_resource = Counter(self.machines)[machine]
+        except:
+            pass
+
+        for labor in self.labors:
+            labor.no_of_resource = Counter(self.labors)[labor]
+
+
+    def calc_rate(self,product_vector):
         # in this function i will use product vector and factors_df to calc rate for this process
         # after calc rate
         # assign min order qty
         # value of multiple of 50 near the calc_rate
-        self.rate = 100 / self.no_of_cuts
+        
+        # rate should be a dot product between product vector and process factors !? 
+        # for example the process factor for the saw process is as below 
+        process_factor = [0.1,0.2,0,0,0.4]
+        product_vector = [123,512,123,4,11]
+
+        self.check_no_of_resource()
+        if self.no_of_cuts!="NaN":
+            self.rate = 100 / self.no_of_cuts
+        else:
+            self.rate = 100
         self.min_order_qty = 100
         # assign rate for machine and labor
         try:
-            self.machine.assign_rate(self.rate)
+            for machine in self.machines:
+                machine.assign_rate(self.rate)
         except:
             pass
 
-        self.labor.assign_rate(self.rate)
+        for labor in self.labors:
+            labor.assign_rate(self.rate)
 
 
 class Routing:
@@ -428,8 +479,8 @@ class StaticData:
         filtered_data = self.labor_df[self.labor_df["operation id"] == process_id]
         return filtered_data
 
-    def get_from_process_factors(self, id):
-        filtered_data = self.process_factors_df[self.process_factors_df["code"] == id]
+    def get_from_process_factors(self, process_code,machine_code):
+        filtered_data = self.process_factors_df[(self.process_factors_df["process code"] == process_code) & (self.process_factors_df["machine code"] == machine_code)]
         return filtered_data
 
 
