@@ -4,6 +4,7 @@
 
 # imports
 import glob
+import math
 import os
 import pandas as pd
 import xlwings as xw
@@ -11,7 +12,7 @@ from collections import Counter
 
 
 class Product:
-    def __init__(self, code, description, main_category, sub_category, minor_category, item_type, weight, length, width, thickness, comp_qty, status, raw_material=None, locator=None,paint_qty =None,thinner_qty = None,galv_qty=None,welding_qty=None,) -> None:
+    def __init__(self, code, description, main_category, sub_category, minor_category, item_type, weight, length, width, thickness, comp_qty, status, raw_material=None, locator=None, paint_qty=0, thinner_qty=0, galv_qty=0, welding_qty=0) -> None:
 
         # main attirbutes
         self.code = code
@@ -33,7 +34,7 @@ class Product:
         self.thinner_qty = thinner_qty
         self.galv_qty = galv_qty
 
-        # welding data 
+        # welding data
         self.welding_qty = welding_qty
 
         # manufacturing related attributes
@@ -52,7 +53,16 @@ class Product:
         # this will return product vector to calculate process cycle time
         product_vector = [self.main_category, self.sub_category, self.minor_category,
                           self.length, self.width, self.thickness, self.weight, self.comp_qty,
-                          self.paint_qty,self.thinner_qty, self.galv_qty, self.weld_qty]
+                          self.paint_qty, self.thinner_qty, self.galv_qty, self.welding_qty]
+        product_vector = [x if x != None else 0 for x in product_vector]
+        df = pd.DataFrame({'product_vector': product_vector})
+
+        # Replace NaN values with 0
+        df.fillna(0, inplace=True)
+
+        # Convert the DataFrame back to a list
+        product_vector = df['product_vector'].tolist()
+
         return product_vector
 
     def assign_process(self):
@@ -67,24 +77,28 @@ class Product:
             op_seq = v["Op Seq"]
             res_seq = 10
             dept_data = StaticData().get_from_dept(department)
-            process_data = StaticData().get_from_process( dept_data["id"].to_list()[0], process)
-            if machine!= "NaN":
-                machine_data = StaticData().get_from_machine( process_data["id"].to_list()[0], machine)
+            process_data = StaticData().get_from_process(
+                dept_data["id"].to_list()[0], process)
+            if machine != "NaN":
+                machine_data = StaticData().get_from_machine(
+                    process_data["id"].to_list()[0], machine)
 
-            labor_data = StaticData().get_from_labor( process_data["id"].to_list()[0])
-           
-            process = Process(process_data["code"].to_list()[0], op_seq, no_of_cuts)
+            labor_data = StaticData().get_from_labor(
+                process_data["id"].to_list()[0])
+
+            process = Process(process_data["code"].to_list()[
+                              0], op_seq, no_of_cuts)
             process.assign_department(dept_data["code"].to_list()[0])
             print(f"machine is {type(machine)}")
-            if machine!= "NaN":
-                process.assign_machine(machine_data["code"].to_list()[0], 1, res_seq)
-                res_seq +=10
-            
-            for il,vl in labor_data.iterrows():            
-                process.assign_labor(vl["code"] , 1,res_seq )
-                res_seq +=10
+            if machine != "NaN":
+                process.assign_machine(
+                    machine_data["code"].to_list()[0], 1, res_seq)
+                res_seq += 10
 
-        
+            for il, vl in labor_data.iterrows():
+                process.assign_labor(vl["code"], 1, res_seq)
+                res_seq += 10
+
             process.calc_rate(self.get_product_vector())
             # after initializing process append it to the lst of processes for the current code
             self.lst_of_processes.append(process)
@@ -129,11 +143,11 @@ class Product:
 
         for process in self.lst_of_processes:
 
-            if len(process.machines)>=1:
+            if len(process.machines) >= 1:
                 for machine in process.machines:
                     resource_data = {
                         "Part Code": self.code,
-                        "Description":self.description,
+                        "Description": self.description,
                         "Operation Sequence": process.op_seq,
                         "Resource Sequence": machine.res_seq,
                         "Resource Code": machine.code,
@@ -143,11 +157,10 @@ class Product:
                     }
                     lst_of_resource_data.append(resource_data)
 
-
             for labor in process.labors:
                 resource_data = {
                     "Part Code": self.code,
-                    "Description":self.description,
+                    "Description": self.description,
                     "Operation Sequence": process.op_seq,
                     "Resource Sequence": labor.res_seq,
                     "Resource Code": labor.code,
@@ -220,15 +233,15 @@ class Bom:
             if parent_added == False:
                 parent = Product(v["Top Parent"], v["Parent Description"], None, None, None, None, self.bom_df["Calc Unit Weight"].sum(
                 ), self.bom_df["Comp Unit Length"].max(), self.bom_df["Comp Unit Width"].max(), None, None, v["Parent Item Status"])
-                for ix,vx in self.bom_df.iterrows():
+                for ix, vx in self.bom_df.iterrows():
                     if vx["Comp Sub Category"] == "سلك اللحام":
-                        parent.welding_qty += vx["Comp Qty"]
+                        parent.welding_qty += float(vx["Comp Qty"])
                     elif vx["Comp Sub Category"] == "البويات":
-                        parent.paint_qty += vx["Comp Qty"]
+                        parent.paint_qty += float(vx["Comp Qty"])
                     elif vx["Comp Sub Category"] == "تنر":
-                        parent.thinner_qty = vx["Comp Qty"]
-                    elif vx["Comp Sub Category"] == "جلفنة": # I should recheck this condition 
-                        parent.galv_qty == vx["Comp Qty"]
+                        parent.thinner_qty += float(vx["Comp Qty"])
+                    elif vx["Comp Sub Category"] == "جلفنة":  # I should recheck this condition
+                        parent.galv_qty += float(vx["Comp Qty"])
 
                 lst_of_products.append(parent)
                 parent_added = True
@@ -312,11 +325,12 @@ class Process:
     def get_process_factors(self):
         # get factors to calc process cycle time
         # factors sheet is a path for excel
-        if len(self.machines) >1 :
-            machine_code = self.machines[0].code 
+
+        if len(self.machines) >= 1:
+            machine_code = self.machines[0].code
         else:
-            machine_code = None
-        
+            machine_code = 0
+
         factors_df = StaticData().get_from_process_factors(self.code, machine_code)
         return factors_df
 
@@ -335,7 +349,7 @@ class Process:
         labor = Labor(labor_code, no_of_resource, res_seq)
         self.labors.append(labor)
 
-    def check_no_of_resource(self,no=None):
+    def check_no_of_resource(self, no=None):
         try:
             for machine in self.machines:
                 machine.no_of_resource = Counter(self.machines)[machine]
@@ -345,24 +359,34 @@ class Process:
         for labor in self.labors:
             labor.no_of_resource = Counter(self.labors)[labor]
 
-
-    def calc_rate(self,product_vector):
+    def calc_rate(self, product_vector):
         # in this function i will use product vector and factors_df to calc rate for this process
         # after calc rate
         # assign min order qty
         # value of multiple of 50 near the calc_rate
-        
-        # rate should be a dot product between product vector and process factors !? 
-        # for example the process factor for the saw process is as below 
-        process_factor = [0.1,0.2,0,0,0.4]
-        product_vector = [123,512,123,4,11]
 
+        # rate should be a dot product between product vector and process factors !?
+        # for example the process factor for the saw process is as below
+        max_rate = self.get_process_factors().values.tolist()[0][-2]
+        min_rate = self.get_process_factors().values.tolist()[0][-1]
+
+        process_vector = self.get_process_factors().values.tolist()[0][3:]
+        product_vector = product_vector[3:]
+
+        self.rate = round(
+            sum([a * b for a, b in zip(product_vector, process_vector)]), 2)
         self.check_no_of_resource()
-        if self.no_of_cuts!="NaN":
-            self.rate = 100 / self.no_of_cuts
+        if self.no_of_cuts != "NaN":
+            self.rate = self.rate / self.no_of_cuts
         else:
-            self.rate = 100
-        self.min_order_qty = 100
+            pass
+
+        if self.rate > max_rate:
+            self.rate = max_rate
+        elif self.rate < min_rate:
+            self.rate = min_rate
+
+        self.min_order_qty = round(self.rate/50)*50
         # assign rate for machine and labor
         try:
             for machine in self.machines:
@@ -375,7 +399,7 @@ class Process:
 
 
 class Routing:
-    def __init__(self,products) -> None:
+    def __init__(self, products) -> None:
         # this class to interact with Excel and Bom and product
         self.products = products
 
@@ -399,23 +423,23 @@ class Routing:
             lst_of_wip_data.append(product.get_wip_data())
         wip_df = pd.DataFrame(lst_of_wip_data)
         return wip_df
+
     def get_operation_data(self):
         # this will get operation data for each product
         # aggregate data into a list or dataframe
         lst_of_operations = []
         for product in self.products:
-            lst_of_operations+=product.get_operation_data()
-            
+            lst_of_operations += product.get_operation_data()
+
         operation_df = pd.DataFrame(lst_of_operations)
         return operation_df
-
 
     def get_resource_data(self):
         # this will get resource data for each product
         # aggregate data into a list or dataframe
         lst_of_resources = []
         for product in self.products:
-            lst_of_resources+= product.get_resource_data()
+            lst_of_resources += product.get_resource_data()
 
         resource_df = pd.DataFrame(lst_of_resources)
         return resource_df
@@ -453,9 +477,9 @@ class StaticData:
     def load_process_factors_excel(self):
         self.process_factors_df = self.wb.sheets["rates"].range("A1:D300").options(
             pd.DataFrame, expand='table', index=False).value
-        self.process_factors_df.dropna(inplace=True)
+        self.process_factors_df.dropna(how="all", inplace=True)
 
-    def get_from_dept_by_code(self,code):
+    def get_from_dept_by_code(self, code):
         filtered_data = self.dept_df[self.dept_df["code"] == code]
         return filtered_data
 
@@ -479,8 +503,10 @@ class StaticData:
         filtered_data = self.labor_df[self.labor_df["operation id"] == process_id]
         return filtered_data
 
-    def get_from_process_factors(self, process_code,machine_code):
-        filtered_data = self.process_factors_df[(self.process_factors_df["process code"] == process_code) & (self.process_factors_df["machine code"] == machine_code)]
+    def get_from_process_factors(self, process_code, machine_code):
+        print(f"process code : {process_code}, machine code : {machine_code}")
+        filtered_data = self.process_factors_df[(self.process_factors_df["process code"] == process_code) & (
+            self.process_factors_df["machine code"] == machine_code)]
         return filtered_data
 
 
