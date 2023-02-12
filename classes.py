@@ -367,10 +367,12 @@ class Process:
 
         # rate should be a dot product between product vector and process factors !?
         # for example the process factor for the saw process is as below
+        print(self.get_process_factors())
+        
         max_rate = self.get_process_factors().values.tolist()[0][-2]
         min_rate = self.get_process_factors().values.tolist()[0][-1]
-
-        process_vector = self.get_process_factors().values.tolist()[0][3:]
+        
+        process_vector = self.get_process_factors().values.tolist()[0][6:]
         product_vector = product_vector[3:]
 
         self.rate = round(
