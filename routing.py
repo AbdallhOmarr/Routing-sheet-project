@@ -148,3 +148,8 @@ def get_item_data():
 @xw.func
 def to_dataloader():
     all_dl()
+
+
+@xw.func
+def to_mail():
+    maill()

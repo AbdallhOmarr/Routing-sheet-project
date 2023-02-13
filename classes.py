@@ -563,7 +563,7 @@ class ExcelHandler:
     # will get all the required data and provide all the required data
 
     def __init__(self) -> None:
-        self.cwd = __location__ = os.path.realpath(
+        self.cwd = os.path.realpath(
             os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
     def get_parent_items(self, main_df):

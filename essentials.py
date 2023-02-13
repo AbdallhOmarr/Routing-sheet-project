@@ -19,6 +19,8 @@ import random
 import pyautogui as pa
 import win32com.client as win32
 
+cwd = os.path.realpath(
+            os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 pa.FAILSAFE = True
 warnings.filterwarnings("ignore")
@@ -549,6 +551,29 @@ def clear_sheets():
 
 @ xw.func
 def maill():
+    mails_to = []
+    mails_cc = []
+    with open(cwd+"\mails.txt","r") as file:
+        for line in file.readlines():
+            if line.strip().lower() == "to":
+                to_lst = True
+            if line.strip().lower() == "cc":
+                to_lst = False
+
+            if line.strip().lower().endswith("@acrow.co"):
+                print(line)
+                if to_lst:
+                    mails_to.append(line.strip().lower())
+                else:
+                    mails_cc.append(line.strip().lower())
+
+    mail_to_str = ""
+    for x in mails_to:
+        mail_to_str += x + ";"
+    mail_cc_str = ""
+    for y in mails_cc:
+        mail_cc_str += y + ";"
+
     wb = xw.Book.caller()
     sheet = wb.sheets.active
     # fil = wb.name
@@ -562,8 +587,8 @@ def maill():
     num = int(sheet.range("H8").value)
     outlook = win32.Dispatch('outlook.application')
     mail = outlook.CreateItem(0)
-    mail.To = "mohamed.gaafer@acrow.co;Mahmoud.Shaban@Acrow.co"
-    mail.cc = "Abdallah.Ashry@Acrow.co;fatma.ahmed@Acrow.co;Hossam.Ahmed@Acrow.co;mostafa.dahy@Acrow.co;abdelrahman.amer@Acrow.co;ahmed.abdalkareem@acrow.co;Ahmed.Ashraf@Acrow.co;ahmed.shabana@Acrow.co;ashraf.abdelsatar@Acrow.co;hussien.elsakary@Acrow.co;ibrahim.elsayed@Acrow.co;mahmoud.abdelrasoul@Acrow.co;mahmoud.naser@Acrow.co;Mohamed.Elhussainy@acrow.co;mostafa.dahy@Acrow.co;mostafa.sabry@acrow.co;ramadan.selim@Acrow.co;shady.bakr@Acrow.co;somaya.abdelkader@Acrow.co;Yahia.Hamdy@Acrow.co"
+    mail.To = mail_to_str
+    mail.cc = mail_cc_str
 
     mail.Subject = f'Finished Routing {num} ({today_date})'
     # mail.Body = 'How are you'
@@ -574,4 +599,3 @@ def maill():
     # mail.Attachments.Add(file_name)
     mail.Display(True)
     # mail.Send()
-    print("Opened")

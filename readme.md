@@ -42,7 +42,6 @@
 
 # Doing
 
-- Add dataloader func
 - Add send mail func
 
 
@@ -51,3 +50,4 @@
 - Add the ability to copy routing from another code in the workbook
 - Add process factors algorithm to calculate rate
 - Add up to 5 sheets
+- Add dataloader func
