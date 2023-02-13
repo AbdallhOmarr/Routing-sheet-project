@@ -85,7 +85,7 @@ def get_item_data1():
     lst_of_route_df_after.append(route)
 
     for product in lst_of_products[0].copy():
-        print(product.code)
+        print(f"-------------{product.code}------------")
         product_route = route[route["item code"] == float(product.code)]
         product_route.dropna(
             subset=["std route", 'copy route', 'dept1'], how='all', inplace=True)
@@ -94,7 +94,6 @@ def get_item_data1():
             print(f"product code:{product.code} has a std route")
 
             product.std_route = True
-            product.get_route(product_route)
 
         if len(product_route) == 0:
             print(f"product code:{product.code} has no route")
@@ -108,7 +107,6 @@ def get_item_data1():
                                          == product.copy_route]
             product.get_route(product_route)
         else:
-            print(f"duplicated:{product.code}")
             product.get_route(product_route)
 
         product.assign_process()

@@ -176,7 +176,6 @@ class Product:
     def check_copy_route(self, df):
 
         self.copy_route = df["copy route"].to_list()
-        print(f"copy route status:{self.copy_route}")
         if len(self.copy_route) >= 1:
             self.copy_route = self.copy_route[0]
         else:
@@ -189,7 +188,6 @@ class Product:
             self.std_routing_df = self.get_std_route(df["std route"].to_list()[0])
             merged = pd.merge(df,self.std_routing_df,on="std route",how ="left",suffixes=("_x",""))
             merged.dropna(inplace=True,axis=1)
-            print(f"merged:{merged}")
             self.route = merged.set_index("item code").stack().reset_index()
 
             # merge std route df with route df 
@@ -236,8 +234,6 @@ class Product:
 
     def get_std_route(self, id):
         route = StaticData().get_from_std_routing(id)
-
-        print(f"std routing from sheet: {route}")
         return route
 
 
@@ -542,7 +538,6 @@ class StaticData:
         return filtered_data
 
     def get_from_std_routing(self, id):
-        print(f"std route:{self.std_routing_df}")
         filtered_data = self.std_routing_df[self.std_routing_df["std route"] == id]
         filtered_data.dropna(inplace=True,axis=1)
 
@@ -578,7 +573,8 @@ class ExcelHandler:
         for i, v in main_df.iterrows():
             self.parent_items.append(v["Items Code"])
 
-        print(self.parent_items)
+        print(f"parents:{self.parent_items}")
+        print("-"*40)
 
     def get_last_10_modified_xlsx_files(self, folder_path):
         all_xlsx_files = glob.glob(os.path.join(folder_path, '*.xlsx'))
