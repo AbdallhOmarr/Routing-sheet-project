@@ -23,6 +23,150 @@ import win32com.client as win32
 pa.FAILSAFE = True
 warnings.filterwarnings("ignore")
 
+@ xw.func
+def all_dl():
+    # 1
+    wb = xw.Book.caller()
+    sheet = wb.sheets.active
+    df1 = sheet.range("B2:E300").options(pd.DataFrame, index=False).value
+    df1 = df1.dropna(subset=['Part Code'])
+    # df['Parts Code']=df['Parts Code'].astype(int)
+    df1['Part Code'] = df1['Part Code'].apply(lambda x: round(x))
+    df1['Part Code'] = df1['Part Code'].astype(str)
+    df1['d1'] = "*ML(20,64)"
+    df1['d2'] = "*ML(121,556)"
+    df1['d3'] = "tab"
+    df1['d4'] = "*save"
+    df1['d5'] = "*ML(649,118)"
+    df1['d6'] = "*ML(23,67)"
+    df1 = df1[['d1', 'Part Code', 'd2', 'WIP',
+               'd3', 'Locator', 'd4', 'd5', 'd6']]
+
+    column_names = df1.columns
+    new_column_names = []
+    for item in column_names:
+        item = item+"1"
+        new_column_names.append(item)
+
+    df1.columns = new_column_names
+
+    # finished df1
+
+    # 2
+    df2 = sheet.range("G2:K300").options(pd.DataFrame, index=False).value
+    df2 = df2.drop(['Comp Desc'], axis=1)
+    df2 = df2.dropna(subset=['Part Code'])
+    # df['Parts Code']=df['Parts Code'].astype(int)
+    df2['Part Code'] = df2['Part Code'].apply(lambda x: round(x))
+    df2['Op Seq'] = df2['Op Seq'].apply(
+        lambda x: round(x))
+    df2['Batch Size'] = df2['Batch Size'].apply(lambda x: round(x))
+
+    df2['Part Code'] = df2['Part Code'].astype(str)
+    df2['Op Seq'] = df2['Op Seq'].astype(str)
+    df2['Batch Size'] = df2['Batch Size'].astype(str)
+
+    df2['d1'] = "*QE"
+    df2['d2'] = "*ML(144,134)"
+    df2['d3'] = "*QR"
+    df2['d4'] = "*ML(50,385)"
+    df2['d5'] = "*ML(20,67)"
+    df2['d6'] = "tab"
+    df2['d7'] = "tab"
+    df2['d8'] = "*SB"
+    df2['d9'] = "\{TAB 10}"
+    df2['d10'] = "*save"
+    df2['d11'] = "*ML(148,134)"
+
+    df2 = df2[['d1', 'd2', 'Part Code', 'd3', 'd4', 'd5', 'Op Seq',
+               'd6', 'Operation code', 'd7', 'd8', 'd9', 'Batch Size', 'd10', 'd11']]
+
+    column_names = df2.columns
+    new_column_names = []
+    for item in column_names:
+        item = item+"2"
+        new_column_names.append(item)
+
+    df2.columns = new_column_names
+
+    # 3
+    df3 = sheet.range("M2:S300").options(pd.DataFrame, index=False).value
+
+    df3 = df3.dropna(subset=['Part Code'])
+    df3 = df3.drop(['Description'], axis=1)
+    df3['Part Code'] = df3['Part Code'].apply(lambda x: round(x))
+    df3['Assigned Units'] = df3['Assigned Units'].apply(lambda x: round(x))
+    df3['Op Seq'] = df3['Op Seq'].apply(
+        lambda x: round(x))
+    df3['Res Seq'] = df3['Res Seq'].apply(
+        lambda x: round(x))
+
+    df3['Part Code'] = df3['Part Code'].astype(str)
+    df3['Assigned Units'] = df3['Assigned Units'].astype(str)
+    df3['Op Seq'] = df3['Op Seq'].astype(str)
+    df3['Res Seq'] = df3['Res Seq'].astype(str)
+
+    df3['d1'] = "*QE"
+    df3['d2'] = "*ML(182,137)"
+    df3['d3'] = "*QR"
+    df3['d4'] = "*ML(50,389)"
+    df3['d5'] = "*QE"
+    df3['d6'] = "*QR"
+    df3['d7'] = "ent"
+    df3['d8'] = "*ML(445,553)"
+    df3['d9'] = "*ML(20,68)"
+    df3['d10'] = "tab"
+    df3['d11'] = "tab"
+    df3['d12'] = "tab"
+    df3['d13'] = "tab"
+    df3['d14'] = "tab"
+    df3['d15'] = "tab"
+    df3['d16'] = "tab"
+    df3['d17'] = "tab"
+    df3['d18'] = "tab"
+    df3['d19'] = "tab"
+    df3['d20'] = "*DN"
+    df3['d21'] = "*DN"
+    df3['d22'] = "ent"
+    df3['d23'] = "*save"
+    df3['d24'] = "*ML(748,117)"
+    df3['d25'] = "*ML(147,135)"
+
+    print(df3)
+
+    df3 = df3[['d1', 'd2', 'Part Code', 'd3', 'd4', 'd5', 'Op Seq', 'd6', 'd7', 'd8', 'd9', 'Res Seq',
+               'd10', 'Res Code', 'd11', 'd12', 'd13', 'd14', 'Inverse', 'd15', 'd16', 'd17', 'd18', 'Assigned Units', 'd19', 'd20', 'd21', 'd22', 'd23', 'd24', 'd25']]
+
+    print(df3)
+
+    column_names = df3.columns
+    new_column_names = []
+    for item in column_names:
+        item = item+"3"
+        new_column_names.append(item)
+
+    df3.columns = new_column_names
+
+    dfc = pd.concat([df1, df2, df3])
+
+    dl_pth = __location__+"\\dl.dld"
+    os.startfile(dl_pth)
+    time.sleep(7)
+    fa.setWindow("dl.dld")
+
+    pa.moveTo((30, 230))
+    pa.click()
+    pa.press("delete")
+
+    dfc
+    dfc.to_clipboard(sep='\t', index=False, header=False,
+                     float_format='{:.4f}'.format)
+    print(dfc)
+    pa.moveTo((130, 250))
+    pa.click()
+    kb.press_and_release("ctrl+v")
+    print("done")
+
 
 def get_files(ext, path):
     print('Getting files with extension: ' + ext)

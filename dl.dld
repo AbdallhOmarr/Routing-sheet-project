@@ -1,0 +1,686 @@
+﻿begindelays
+DataDelay=0.05
+CellDelay=0.05
+FormDelay=0.05
+KeyHold=50
+SystemHold=50
+HourGlass=250
+TAB=0
+ENT=0
+*UP=0
+*DN=0
+*LT=0
+*RT=0
+*SP=0
+*SAVE=0
+*NB=0
+*PB=0
+*NF=0
+*PF=0
+*NR=0
+*PR=0
+*FR=0
+*LR=0
+*ER=0
+*DR=0
+*SB=0
+*ST=0
+*BM=0
+*QE=0
+*QR=0
+*FI=0
+*FA=0
+*IR=0
+*CL=0
+*FE=0
+*AA=0
+*AB=0
+*AC=0
+*AD=0
+*AE=0
+*AF=0
+*AG=0
+*AH=0
+*AI=0
+*AJ=0
+*AK=0
+*AL=0
+*AM=0
+*AN=0
+*AO=0
+*AP=0
+*AQ=0
+*AR=0
+*AS=0
+*AT=0
+*AU=0
+*AV=0
+*AW=0
+*AX=0
+*AY=0
+*AZ=0
+enddelays
+beginheader
+*ML(20,64)	Data	*ML(121,556)	Data	tab	Data	*save	*ML(649,118)	*ML(23,67)	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data	Data																																																																																																				
+
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+endheader
+beginother
+Window=Oracle Applications - PROD
+Description=	
+CommandGroup=EBS - R12
+PasteCtrlV=1
+endother
+begindata
+*ML(20,64)	6221177311780	*ML(121,556)	FG Acrow	tab	FG Acrow.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311520	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311521	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311522	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311523	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311524	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311525	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311526	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311527	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311528	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311529	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311530	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311531	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311532	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311533	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311534	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311535	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311536	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311537	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311622	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311623	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311624	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311625	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311626	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311627	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311628	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311629	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311630	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311631	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311632	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311633	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311634	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311635	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177291800	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311636	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311637	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311638	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311639	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311640	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311641	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311642	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311643	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311644	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311645	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311646	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311670	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311671	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311672	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311673	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311674	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311675	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311676	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311677	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311510	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311511	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311512	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311513	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311514	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311515	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311516	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311517	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311518	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311519	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311678	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311668	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311621	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	6221177310714	*ML(121,556)	FG Acrow	tab	FG Acrow.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311680	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311681	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311682	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311683	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311684	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311685	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311686	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311687	*ML(121,556)	WIP 2	tab	WIP 2.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311688	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	6221177310721	*ML(121,556)	FG Acrow	tab	FG Acrow.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+*ML(20,64)	4221177311679	*ML(121,556)	WIP 1	tab	WIP 1.Ground..	*save	*ML(649,118)	*ML(23,67)																																														
+									*QE	*ML(144,134)	6221177311780	*QR	*ML(50,385)	*ML(20,67)	10	tab	SWLS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177311780	*QR	*ML(50,385)	*ML(20,67)	20	tab	WLDS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177311780	*QR	*ML(50,385)	*ML(20,67)	30	tab	GRDS	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177311780	*QR	*ML(50,385)	*ML(20,67)	40	tab	SND	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177311780	*QR	*ML(50,385)	*ML(20,67)	50	tab	SPY	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177311780	*QR	*ML(50,385)	*ML(20,67)	60	tab	PACK	tab	*SB	\{TAB 10}	300	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311520	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311521	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311522	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311522	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311523	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311524	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311525	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311525	*QR	*ML(50,385)	*ML(20,67)	20	tab	PUN2	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311526	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311526	*QR	*ML(50,385)	*ML(20,67)	20	tab	PUN2	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311527	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	300	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311528	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	300	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311529	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	250	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311530	*QR	*ML(50,385)	*ML(20,67)	10	tab	SHR2	tab	*SB	\{TAB 10}	200	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311530	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	200	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311531	*QR	*ML(50,385)	*ML(20,67)	10	tab	SHR2	tab	*SB	\{TAB 10}	250	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311532	*QR	*ML(50,385)	*ML(20,67)	10	tab	SHR2	tab	*SB	\{TAB 10}	200	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311533	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311534	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311535	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311536	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311537	*QR	*ML(50,385)	*ML(20,67)	10	tab	DEK	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311537	*QR	*ML(50,385)	*ML(20,67)	20	tab	ROT1	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311622	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311622	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311623	*QR	*ML(50,385)	*ML(20,67)	10	tab	SHR2	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311623	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311624	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311624	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311625	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	1100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311626	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311626	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311627	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311628	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311628	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311629	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311630	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311631	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311632	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311633	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311633	*QR	*ML(50,385)	*ML(20,67)	20	tab	DRL2	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311634	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311634	*QR	*ML(50,385)	*ML(20,67)	20	tab	DRL2	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311635	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	250	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177291800	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	200	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311636	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311637	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311637	*QR	*ML(50,385)	*ML(20,67)	20	tab	PUN2	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311638	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311639	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	550	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311640	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311641	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	300	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311642	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	650	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311643	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	300	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311644	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	450	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311645	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	400	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311646	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	450	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311670	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311670	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311671	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311671	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311673	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311673	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311674	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311675	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311676	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311677	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	250	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311510	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311510	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311511	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311512	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311512	*QR	*ML(50,385)	*ML(20,67)	20	tab	PUN2	tab	*SB	\{TAB 10}	200	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311513	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311513	*QR	*ML(50,385)	*ML(20,67)	20	tab	PUN2	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311514	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311514	*QR	*ML(50,385)	*ML(20,67)	20	tab	PUN2	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311515	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311515	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311516	*QR	*ML(50,385)	*ML(20,67)	10	tab	SHR2	tab	*SB	\{TAB 10}	200	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311516	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	200	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311517	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311518	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	200	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311519	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	650	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311678	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	350	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311668	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	200	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311621	*QR	*ML(50,385)	*ML(20,67)	10	tab	SAW2	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311621	*QR	*ML(50,385)	*ML(20,67)	20	tab	PUN2	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177311780	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311520	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311521	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311522	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311523	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311524	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311525	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311526	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311527	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311528	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311529	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311530	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311531	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311532	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311533	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311534	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311535	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311536	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311537	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311622	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311623	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311624	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311625	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311626	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311627	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311628	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311629	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311630	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311631	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311632	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311633	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311634	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311635	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177291800	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311636	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311637	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311638	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311639	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311640	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311641	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311642	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311643	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311644	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311645	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311646	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311670	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311671	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311673	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311674	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311675	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311676	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311677	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311510	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311511	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311512	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311513	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311514	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311515	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311516	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311517	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311518	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311519	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311678	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311668	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311621	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310714	*QR	*ML(50,385)	*ML(20,67)	10	tab	SWLS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310714	*QR	*ML(50,385)	*ML(20,67)	20	tab	WLDS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310714	*QR	*ML(50,385)	*ML(20,67)	30	tab	GRDS	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310714	*QR	*ML(50,385)	*ML(20,67)	40	tab	SND	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310714	*QR	*ML(50,385)	*ML(20,67)	50	tab	SPY	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310714	*QR	*ML(50,385)	*ML(20,67)	60	tab	PACK	tab	*SB	\{TAB 10}	350	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311680	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311681	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311682	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311683	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311684	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311685	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311686	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311687	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311688	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311688	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310714	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311680	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311681	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311682	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311683	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311684	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311685	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311686	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311687	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311688	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310721	*QR	*ML(50,385)	*ML(20,67)	10	tab	SWLS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310721	*QR	*ML(50,385)	*ML(20,67)	20	tab	WLDS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310721	*QR	*ML(50,385)	*ML(20,67)	30	tab	GRDS	tab	*SB	\{TAB 10}	150	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310721	*QR	*ML(50,385)	*ML(20,67)	40	tab	SND	tab	*SB	\{TAB 10}	100	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310721	*QR	*ML(50,385)	*ML(20,67)	50	tab	SPY	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310721	*QR	*ML(50,385)	*ML(20,67)	60	tab	PACK	tab	*SB	\{TAB 10}	350	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311679	*QR	*ML(50,385)	*ML(20,67)	10	tab	LAS	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311679	*QR	*ML(50,385)	*ML(20,67)	20	tab	BND	tab	*SB	\{TAB 10}	50	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	6221177310721	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+									*QE	*ML(144,134)	4221177311679	*QR	*ML(50,385)	*ML(20,67)	9990	tab	QTM	tab	*SB	\{TAB 10}	0	*save	*ML(148,134)																															
+																								*QE	*ML(182,137)	6221177311780	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-MWSR000	tab	tab	tab	tab	0.0225	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177311780	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GRDTC00	tab	tab	tab	tab	0.0225	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177311780	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	30	tab	LB-AGRDTC0	tab	tab	tab	tab	0.0225	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177311780	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	40	tab	LB-WLDTC00	tab	tab	tab	tab	0.0225	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177311780	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-MWSR000	tab	tab	tab	tab	0.0338	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177311780	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-WLDTC00	tab	tab	tab	tab	0.0338	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177311780	*QR	*ML(50,389)	*QE	30	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	LB-GENTC00	tab	tab	tab	tab	0.0900	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177311780	*QR	*ML(50,389)	*QE	40	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SDSR000	tab	tab	tab	tab	2.0000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177311780	*QR	*ML(50,389)	*QE	40	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	1.0000	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177311780	*QR	*ML(50,389)	*QE	50	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-PASY000	tab	tab	tab	tab	0.3450	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177311780	*QR	*ML(50,389)	*QE	50	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	0.3450	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177311780	*QR	*ML(50,389)	*QE	60	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	LB-GENTC00	tab	tab	tab	tab	294.3000	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311678	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	321.1619	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311678	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	107.0540	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311677	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	210.3421	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311677	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	70.1140	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311676	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	109.1758	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311676	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	109.1758	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311675	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	94.7043	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311675	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	94.7043	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311674	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	7.0696	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311674	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	7.0696	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311673	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	35.0867	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311673	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	11.6956	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311673	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	58.1419	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311673	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	29.0709	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311671	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	33.2262	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311671	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	11.0754	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311671	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	26.5875	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311671	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	13.2937	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311670	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	26.6120	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311670	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	8.8707	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311670	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	11.2679	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311670	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	5.6339	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311668	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	167.6000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311668	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	167.6000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311646	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	432.1224	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311646	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	144.0408	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311645	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	374.1092	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311645	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	124.7031	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311644	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	422.3095	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311644	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	140.7698	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311643	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	263.2958	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311643	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	87.7653	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311642	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	616.4586	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311642	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	205.4862	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311641	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	273.5180	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311641	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	91.1727	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311640	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	140.7608	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311640	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	140.7608	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311639	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	541.0794	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311639	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	180.3598	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311638	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	149.8916	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311638	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	149.8916	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311637	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	59.7663	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311637	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	59.7663	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311637	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-PUSO000	tab	tab	tab	tab	27.8088	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311637	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	27.8088	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311636	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	124.8196	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311636	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	124.8196	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311635	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	210.3421	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311635	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	70.1140	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311634	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	43.2801	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311634	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	43.2801	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311634	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-DRCNC00	tab	tab	tab	tab	90.0000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311634	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	30.0000	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311633	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	43.2801	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311633	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	43.2801	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311633	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-DRCNC00	tab	tab	tab	tab	90.0000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311633	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	30.0000	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311632	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	91.7015	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311632	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	91.7015	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311631	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	79.8919	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311631	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	79.8919	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311630	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	41.5339	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311630	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	41.5339	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311629	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	37.3042	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311629	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	12.4347	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311628	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	32.2434	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311628	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	10.7478	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311628	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	58.1419	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311628	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	29.0709	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311627	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	16.4562	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311627	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	5.4854	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311626	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	16.4165	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311626	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	5.4722	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311626	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	27.9060	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311626	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	13.9530	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311625	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	1085.0649	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311625	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	361.6883	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311624	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	33.2262	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311624	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	11.0754	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311624	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	26.5875	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311624	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	13.2937	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311623	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SHSR016	tab	tab	tab	tab	141.6967	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311623	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	35.4242	tab	tab	tab	tab	4	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311623	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	51.7219	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311623	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	25.8609	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311622	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	26.6120	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311622	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	8.8707	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311622	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	11.2679	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311622	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	5.6339	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311621	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	129.4543	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311621	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	129.4543	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311621	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-PUSO000	tab	tab	tab	tab	147.3028	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311621	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	147.3028	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311537	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWDK000	tab	tab	tab	tab	143.4162	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311537	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	143.4162	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311537	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDRL000	tab	tab	tab	tab	19.9785	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311537	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	19.9785	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311536	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	101.3058	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311536	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	101.3058	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311535	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	111.4123	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311535	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	111.4123	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311534	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	77.6319	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311534	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	77.6319	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311533	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	97.9343	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311533	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	97.9343	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311532	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SHSR016	tab	tab	tab	tab	177.2669	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311532	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	44.3167	tab	tab	tab	tab	4	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311531	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SHSR016	tab	tab	tab	tab	205.3281	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311531	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	51.3320	tab	tab	tab	tab	4	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311530	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SHSR016	tab	tab	tab	tab	174.2362	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311530	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	43.5590	tab	tab	tab	tab	4	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311530	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	176.6626	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311530	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	88.3313	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311529	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	217.6677	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311529	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	72.5559	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311528	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	281.3436	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311528	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	93.7812	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311527	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	263.2958	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311527	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	87.7653	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311526	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	62.2535	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311526	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	62.2535	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311526	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-PUSO000	tab	tab	tab	tab	3.8445	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311526	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	3.8445	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311525	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	62.2535	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311525	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	62.2535	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311525	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-PUSO000	tab	tab	tab	tab	3.8445	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311525	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	3.8445	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311524	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	51.0652	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311524	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	51.0652	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311523	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	43.5848	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311523	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	14.5283	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311522	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	35.6021	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311522	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	11.8674	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311522	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	9.3105	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311522	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	4.6552	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311521	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	35.0288	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311521	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	11.6763	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311520	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	23.9935	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311520	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	7.9978	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311519	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	603.8402	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311519	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	201.2801	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311518	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	178.5851	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311518	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	59.5284	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311517	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	102.6317	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311517	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	102.6317	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311516	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SHSR016	tab	tab	tab	tab	189.7639	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311516	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	47.4410	tab	tab	tab	tab	4	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311516	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	198.8123	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311516	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	99.4061	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311515	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	137.4729	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311515	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	45.8243	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311515	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	34.0963	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311515	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	17.0481	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311514	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	65.9478	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311514	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	65.9478	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311514	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-PUSO000	tab	tab	tab	tab	3.9811	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311514	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	3.9811	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311513	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	65.9478	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311513	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	65.9478	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311513	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-PUSO000	tab	tab	tab	tab	3.9811	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311513	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	3.9811	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311512	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	146.9100	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311512	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	146.9100	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311512	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-PUSO000	tab	tab	tab	tab	176.6393	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311512	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	176.6393	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311511	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	100.6343	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311511	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	100.6343	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311510	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	30.3045	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311510	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	10.1015	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311510	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	53.0153	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311510	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	26.5077	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177291800	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SWSR002	tab	tab	tab	tab	156.6132	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177291800	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	156.6132	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310714	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-MWSR000	tab	tab	tab	tab	0.2000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310714	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GRDTC00	tab	tab	tab	tab	0.2000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310714	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	30	tab	LB-AGRDTC0	tab	tab	tab	tab	0.2000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310714	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	40	tab	LB-WLDTC00	tab	tab	tab	tab	0.2000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310714	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-MWSR000	tab	tab	tab	tab	0.9000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310714	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-WLDTC00	tab	tab	tab	tab	0.9000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310714	*QR	*ML(50,389)	*QE	30	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	LB-GENTC00	tab	tab	tab	tab	5.0000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310714	*QR	*ML(50,389)	*QE	40	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SDSR000	tab	tab	tab	tab	10.0000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310714	*QR	*ML(50,389)	*QE	40	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	5.0000	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310714	*QR	*ML(50,389)	*QE	50	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-PASY000	tab	tab	tab	tab	8.7359	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310714	*QR	*ML(50,389)	*QE	50	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	8.7359	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310714	*QR	*ML(50,389)	*QE	60	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	LB-GENTC00	tab	tab	tab	tab	302.3000	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311688	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	31.3007	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311688	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	10.4336	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311688	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	18.3181	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311688	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	9.1591	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311687	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	82.5706	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311687	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	27.5235	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311686	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	82.4937	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311686	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	27.4979	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311685	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	80.6151	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311685	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	26.8717	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311684	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	80.5417	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311684	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	26.8472	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311683	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	77.2104	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311683	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	25.7368	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311682	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	72.3679	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311682	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	24.1226	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311681	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	25.9169	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311681	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	8.6390	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311680	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	27.0960	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311680	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	9.0320	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310721	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-MWSR000	tab	tab	tab	tab	0.2000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310721	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GRDTC00	tab	tab	tab	tab	0.2000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310721	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	30	tab	LB-AGRDTC0	tab	tab	tab	tab	0.2000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310721	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	40	tab	LB-WLDTC00	tab	tab	tab	tab	0.2000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310721	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-MWSR000	tab	tab	tab	tab	0.9000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310721	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-WLDTC00	tab	tab	tab	tab	0.9000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310721	*QR	*ML(50,389)	*QE	30	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	LB-GENTC00	tab	tab	tab	tab	5.0000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310721	*QR	*ML(50,389)	*QE	40	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-SDSR000	tab	tab	tab	tab	10.0000	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310721	*QR	*ML(50,389)	*QE	40	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	5.0000	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310721	*QR	*ML(50,389)	*QE	50	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-PASY000	tab	tab	tab	tab	8.7359	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310721	*QR	*ML(50,389)	*QE	50	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	8.7359	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	6221177310721	*QR	*ML(50,389)	*QE	60	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	LB-GENTC00	tab	tab	tab	tab	302.3000	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311679	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-LASR003	tab	tab	tab	tab	31.3007	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311679	*QR	*ML(50,389)	*QE	10	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	10.4336	tab	tab	tab	tab	3	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311679	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	10	tab	MC-BDHY225	tab	tab	tab	tab	18.3181	tab	tab	tab	tab	1	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+																								*QE	*ML(182,137)	4221177311679	*QR	*ML(50,389)	*QE	20	*QR	ent	*ML(445,553)	*ML(20,68)	20	tab	LB-GENTC00	tab	tab	tab	tab	9.1591	tab	tab	tab	tab	2	tab	*DN	*DN	ent	*save	*ML(748,117)	*ML(147,135)
+enddata
+beginoptions
+AutoTab=false
+HourGlass=true
+AutoInsert=true
+ProgressBar=true
+TitleSize=false
+DataColour=16777215
+CommandColour=16777215
+KeystrokeColour=16777215
+DataSource=0
+ImportLoad=0
+EnableMacro=1
+DatePicker=1
+LegacyKeyMode=0
+IEOnly=0
+StopIfNotIE=0
+LoadControl=0
+UseBC=0
+SkipBlank=1
+Protection=￶�￶�￮￥￮￥￦￭￦￭￮￥￮￥￶�￶�ￎￅￎￅￆￍￆￍￎￅￎￅ￶�￶�￮￥￮￥￦￭￦￭￮￥￮￥￶�￶�%CR%%CR%v}v}nenefmfmnenev}v}NE
+endoptions
+beginformat
+FontName=Default
+FontSize=8
+ColumnWidth1=88
+ColumnWidth2=94
+ColumnWidth3=88
+ColumnWidth4=69
+ColumnWidth6=103
+ColumnWidth8=104
+ColumnWidth12=88
+ColumnWidth27=142
+RowHeight1=25
+endformat
+begincommands
+Command	EBS - R12	EBS - 11i	EBS - 10.7/11.0 NCA	EBS - 10.7SC	Siebel	SAP	Peoplesoft	JDE	Dynamics	Other	Description
+TAB	\{TAB}	\{TAB}	\{TAB}	\{TAB}	\{TAB}	\{TAB}	\{TAB}	\{TAB}	\{TAB}	\{TAB}	TAB key
+ENT	\{ENTER}	\{ENTER}	\{ENTER}	\{ENTER}	\{ENTER}	\{ENTER}	\{ENTER}	\{ENTER}	\{ENTER}	\{ENTER}	Enter key
+*UP	\{UP}	\{UP}	\{UP}	\{UP}	\{UP}	\{UP}	\{UP}	\{UP}	\{UP}	\{UP}	Up arrow key
+*DN	\{DOWN}	\{DOWN}	\{DOWN}	\{DOWN}	\{DOWN}	\{DOWN}	\{DOWN}	\{DOWN}	\{DOWN}	\{DOWN}	Down arrow key
+*LT	\{LEFT}	\{LEFT}	\{LEFT}	\{LEFT}	\{LEFT}	\{LEFT}	\{LEFT}	\{LEFT}	\{LEFT}	\{LEFT}	Left arrow key
+*RT	\{RIGHT}	\{RIGHT}	\{RIGHT}	\{RIGHT}	\{RIGHT}	\{RIGHT}	\{RIGHT}	\{RIGHT}	\{RIGHT}	\{RIGHT}	Right arrow key
+*SP	\%F%V	\%F%V	\%A%{DOWN 4}{ENTER}	\%A%A							Save & proceed
+*SAVE	\^S	\^S	\^S	\{F10}							Save
+*NB	\+{PGDN}	\+{PGDN}	\+{PGDN}	\^{PGDN}							Next Block
+*PB	\+{PGUP}	\+{PGUP}	\+{PGUP}	\^{PGUP}							Previous Block
+*NF	\{TAB}	\{TAB}	\%G%{DOWN}{ENTER}	\{TAB}							Next Field
+*PF	\+{TAB}	\+{TAB}	\%G%{DOWN 2}{ENTER}	\+{TAB}							Previous Field
+*NR	\{DOWN}	\{DOWN}	\%G%{DOWN 3}{ENTER}	\+{DOWN}							Next record
+*PR	\{UP}	\{UP}	\%G%{DOWN 4}{ENTER}	\+{UP}							Previous record
+*FR	\%V%DF	\%V%DF	\%G%{DOWN 5}{ENTER}	\%G%F							First record
+*LR	\%V%DL	\%V%DL	\%G%{DOWN 6}{ENTER}	\%G%L							Last record
+*ER	\{F6}	\{F6}	\{F6}	\+{F4}							Erase record
+*DR	\^{UP}	\^{UP}	\^{UP}	\+{F6}							Delete record
+*SB	\ 	\ 	\ 	\ 	\ 	\ 	\ 	\ 	\ 	\ 	Space bar
+*ST	\{HOME}+{END}	\{HOME}+{END}	\{HOME}+{END}	\{HOME}+{END}	\{HOME}+{END}	\{HOME}+{END}	\{HOME}+{END}	\{HOME}+{END}	\{HOME}+{END}	\{HOME}+{END}	Select field text
+*BM	\^B	\^B	\^B	\{F5}							Block menu
+*QE	\{F11}	\{F11}	\{F11}	\{F7}							Query enter
+*QR	\^{F11}	\^{F11}	\^{F11}	\{F8}							Query run
+*FI	\%V%F	\%V%F	\%Q%{DOWN}{ENTER}								Find
+*FA	\%V%I	\%V%I	\%Q%{DOWN 2}{ENTER}								Find all
+*IR	\^{DOWN}	\^{DOWN}	\^{DOWN}	\{F6}							Insert record
+*CL	\{F5}	\{F5}	\{F5}	\^U							Clear field
+*FE	\^E	\^E	\^E	\^E							Field edit
+*AA	\%A	\%A	\%A	\%A	\%A	\%A	\%A	\%A	\%A	\%A	Alt A
+*AB	\%B	\%B	\%B	\%B	\%B	\%B	\%B	\%B	\%B	\%B	Alt B
+*AC	\%C	\%C	\%C	\%C	\%C	\%C	\%C	\%C	\%C	\%C	Alt C
+*AD	\%D	\%D	\%D	\%D	\%D	\%D	\%D	\%D	\%D	\%D	Alt D
+*AE	\%E	\%E	\%E	\%E	\%E	\%E	\%E	\%E	\%E	\%E	Alt E
+*AF	\%F	\%F	\%F	\%F	\%F	\%F	\%F	\%F	\%F	\%F	Alt F
+*AG	\%G	\%G	\%G	\%G	\%G	\%G	\%G	\%G	\%G	\%G	Alt G
+*AH	\%H	\%H	\%H	\%H	\%H	\%H	\%H	\%H	\%H	\%H	Alt H
+*AI	\%I	\%I	\%I	\%I	\%I	\%I	\%I	\%I	\%I	\%I	Alt I
+*AJ	\%J	\%J	\%J	\%J	\%J	\%J	\%J	\%J	\%J	\%J	Alt J
+*AK	\%K	\%K	\%K	\%K	\%K	\%K	\%K	\%K	\%K	\%K	Alt K
+*AL	\%L	\%L	\%L	\%L	\%L	\%L	\%L	\%L	\%L	\%L	Alt L
+*AM	\%M	\%M	\%M	\%M	\%M	\%M	\%M	\%M	\%M	\%M	Alt M
+*AN	\%N	\%N	\%N	\%N	\%N	\%N	\%N	\%N	\%N	\%N	Alt N
+*AO	\%O	\%O	\%O	\%O	\%O	\%O	\%O	\%O	\%O	\%O	Alt O
+*AP	\%P	\%P	\%P	\%P	\%P	\%P	\%P	\%P	\%P	\%P	Alt P
+*AQ	\%Q	\%Q	\%Q	\%Q	\%Q	\%Q	\%Q	\%Q	\%Q	\%Q	Alt Q
+*AR	\%R	\%R	\%R	\%R	\%R	\%R	\%R	\%R	\%R	\%R	Alt R
+*AS	\%S	\%S	\%S	\%S	\%S	\%S	\%S	\%S	\%S	\%S	Alt S
+*AT	\%T	\%T	\%T	\%T	\%T	\%T	\%T	\%T	\%T	\%T	Alt T
+*AU	\%U	\%U	\%U	\%U	\%U	\%U	\%U	\%U	\%U	\%U	Alt U
+*AV	\%V	\%V	\%V	\%V	\%V	\%V	\%V	\%V	\%V	\%V	Alt V
+*AW	\%W	\%W	\%W	\%W	\%W	\%W	\%W	\%W	\%W	\%W	Alt W
+*AX	\%X	\%X	\%X	\%X	\%X	\%X	\%X	\%X	\%X	\%X	Alt X
+*AY	\%Y	\%Y	\%Y	\%Y	\%Y	\%Y	\%Y	\%Y	\%Y	\%Y	Alt Y
+*AZ	\%Z	\%Z	\%Z	\%Z	\%Z	\%Z	\%Z	\%Z	\%Z	\%Z	Alt Z
+endcommands
+beginhdrgrid
+																																																																																																			
+
+0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+begindata
+enddata
+endhdrgrid
+beginftrgrid
+																																																																																																		
+
+000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+begindata
+enddata
+endftrgrid

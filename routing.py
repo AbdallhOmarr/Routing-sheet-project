@@ -1,6 +1,7 @@
 from classes import *
 import xlwings as xw
 import warnings
+from essentials import *
 warnings.filterwarnings("ignore")
 
 
@@ -19,7 +20,6 @@ all_route_df = pd.DataFrame()
 
 # wb caller declared once
 wb = xw.Book.caller()
-
 
 @xw.func
 def main():
@@ -145,3 +145,6 @@ def get_item_data():
                               header=False).value = routing.get_resource_data()
     sheet.range("L:L").number_format = '0'
 
+@xw.func
+def to_dataloader():
+    all_dl()
