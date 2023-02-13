@@ -176,18 +176,24 @@ class Product:
     def check_copy_route(self, df):
 
         self.copy_route = df["copy route"].to_list()
-        print(self.copy_route)
+        print(f"copy route status:{self.copy_route}")
         if len(self.copy_route) >= 1:
             self.copy_route = self.copy_route[0]
         else:
             self.copy_route = None
 
     def get_route(self, df):
-        print(self.std_route)
         if self.std_route == False:
             self.route = df.set_index("item code").stack().reset_index()
         else:
-            self.route = self.get_std_route(df["std route"].to_list()[0])
+            self.std_routing_df = self.get_std_route(df["std route"].to_list()[0])
+            merged = pd.merge(df,self.std_routing_df,on="std route",how ="left",suffixes=("_x",""))
+            merged.dropna(inplace=True,axis=1)
+            print(f"merged:{merged}")
+            self.route = merged.set_index("item code").stack().reset_index()
+
+            # merge std route df with route df 
+
         self.get_route_json()
 
     def get_route_json(self):
@@ -230,6 +236,8 @@ class Product:
 
     def get_std_route(self, id):
         route = StaticData().get_from_std_routing(id)
+
+        print(f"std routing from sheet: {route}")
         return route
 
 
@@ -505,7 +513,6 @@ class StaticData:
         self.std_routing_df = self.wb.sheets["std routing"].range("A1:AY10").options(
             pd.DataFrame, expand="table", index=False
         ).value
-        self.std_routing_df.dropna(inplace=True)
 
     def get_from_dept_by_code(self, code):
         filtered_data = self.dept_df[self.dept_df["code"] == code]
@@ -535,7 +542,10 @@ class StaticData:
         return filtered_data
 
     def get_from_std_routing(self, id):
+        print(f"std route:{self.std_routing_df}")
         filtered_data = self.std_routing_df[self.std_routing_df["std route"] == id]
+        filtered_data.dropna(inplace=True,axis=1)
+
         return filtered_data
 
 

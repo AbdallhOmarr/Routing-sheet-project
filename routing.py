@@ -85,13 +85,17 @@ def get_item_data1():
     lst_of_route_df_after.append(route)
 
     for product in lst_of_products[0].copy():
+        print(product.code)
         product_route = route[route["item code"] == float(product.code)]
         product_route.dropna(
             subset=["std route", 'copy route', 'dept1'], how='all', inplace=True)
 
         if pd.notna(product_route["std route"].to_list()[0]):
+            print(f"product code:{product.code} has a std route")
+
             product.std_route = True
-            print(product.std_route)
+            product.get_route(product_route)
+
         if len(product_route) == 0:
             print(f"product code:{product.code} has no route")
             lst_of_products[0].pop(lst_of_products[0].index(product))
@@ -99,11 +103,12 @@ def get_item_data1():
 
         product.check_copy_route(product_route)
         if pd.notna(product.copy_route):
-            print("copy route")
+            print(f"product code:{product.code} is copy route")
             product_route = all_route_df[all_route_df["item code"]
                                          == product.copy_route]
             product.get_route(product_route)
         else:
+            print(f"duplicated:{product.code}")
             product.get_route(product_route)
 
         product.assign_process()
