@@ -42,7 +42,7 @@
 
 # Doing
 
-- Add send mail func
+- add factors for rates with fatma tom
 
 
 # Done
@@ -51,3 +51,4 @@
 - Add process factors algorithm to calculate rate
 - Add up to 5 sheets
 - Add dataloader func
+- Add send mail func
