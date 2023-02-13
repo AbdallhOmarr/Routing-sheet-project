@@ -65,34 +65,52 @@ def get_route_data1():
     sheet.range("A:A").number_format = '0'
     sheet.range("c:c").number_format = '0'
 
+
 @xw.func
 def get_item_data1():
     # get routing after
     sheet = wb.sheets["Item1"]
     route = sheet.range("A3:BA203").options(
         pd.DataFrame, expand='table',  index=False).value
-    route.dropna(subset= ["dept1"],inplace=True)
+    route.dropna(subset=["dept1"], inplace=True)
 
     # need to remove the last one if the same button clicked again tbs
     lst_of_route_df_after.append(route)
     for product in lst_of_products[0]:
-        product_route = route[route["item code"]==float(product.code)] 
+
+        product_route = route[route["item code"] == float(product.code)]
         product.get_route(product_route)
+        if product.copy_route:
+            print(f"copied from: {product.copy_route}")
+            all_route = pd.DataFrame()
+            for df in lst_of_route_df_after:
+                all_route.append(df)
+            product_route = all_route[all_route["copy route"]
+                                      == product.copy_route]
+            product.get_route(product_route)
+        else:
+            pass
+
         print(f"product code:{product.code}")
         print(f"product route: \n{product.route_processed}")
+
         product.assign_process()
 
     routing = Routing(lst_of_products[0])
 
     sheet = wb.sheets["r1"]
-    sheet.range("B4").options(index=False, expand='table', header=False).value = routing.get_wip_data()
+    sheet.range("B4").options(index=False, expand='table',
+                              header=False).value = routing.get_wip_data()
     sheet.range("B:B").number_format = '0'
 
-    sheet.range("G4").options(index=False, expand='table', header=False).value = routing.get_operation_data()
+    sheet.range("G4").options(index=False, expand='table',
+                              header=False).value = routing.get_operation_data()
     sheet.range("G:G").number_format = '0'
 
-    sheet.range("L4").options(index=False, expand='table', header=False).value = routing.get_resource_data()
+    sheet.range("L4").options(index=False, expand='table',
+                              header=False).value = routing.get_resource_data()
     sheet.range("L:L").number_format = '0'
+
 
 @xw.func
 def get_route_data2():
@@ -110,18 +128,19 @@ def get_route_data2():
     sheet.range("A:A").number_format = '0'
     sheet.range("c:c").number_format = '0'
 
+
 @xw.func
 def get_item_data2():
     # get routing after
     sheet = wb.sheets["Item2"]
     route = sheet.range("A3:BA203").options(
         pd.DataFrame, expand='table',  index=False).value
-    route.dropna(subset= ["dept1"],inplace=True)
+    route.dropna(subset=["dept1"], inplace=True)
 
     # need to remove the last one if the same button clicked again tbs
     lst_of_route_df_after.append(route)
     for product in lst_of_products[1]:
-        product_route = route[route["item code"]==float(product.code)] 
+        product_route = route[route["item code"] == float(product.code)]
         product.get_route(product_route)
         print(f"product code:{product.code}")
         print(f"product route: \n{product.route_processed}")
@@ -130,11 +149,14 @@ def get_item_data2():
     routing = Routing(lst_of_products[1])
 
     sheet = wb.sheets["r2"]
-    sheet.range("B4").options(index=False, expand='table', header=False).value = routing.get_wip_data()
+    sheet.range("B4").options(index=False, expand='table',
+                              header=False).value = routing.get_wip_data()
     sheet.range("B:B").number_format = '0'
 
-    sheet.range("G4").options(index=False, expand='table', header=False).value = routing.get_operation_data()
+    sheet.range("G4").options(index=False, expand='table',
+                              header=False).value = routing.get_operation_data()
     sheet.range("G:G").number_format = '0'
 
-    sheet.range("L4").options(index=False, expand='table', header=False).value = routing.get_resource_data()
+    sheet.range("L4").options(index=False, expand='table',
+                              header=False).value = routing.get_resource_data()
     sheet.range("L:L").number_format = '0'
