@@ -266,7 +266,7 @@ class Bom:
                         parent.thinner_qty += float(vx["Comp Qty"])
                     elif vx["Comp Sub Category"] == "جلفنة":  # I should recheck this condition
                         parent.galv_qty += float(vx["Comp Qty"])
-
+                self.top_parent = parent.code
                 lst_of_products.append(parent)
                 parent_added = True
             if (v["Comp Item Type"] == "Part") or (v["Component Item"][:3] in parts_code_start):

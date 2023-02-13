@@ -37,7 +37,8 @@ def main():
     boms_df = excelHandler.get_bom_data()
 
     # create loop for each bom to add it to a new sheet
-
+    print("lst of boms")
+    print(boms_df)
     for bom_df in boms_df:
         bom_obj = Bom(bom_df)
         products = bom_obj.get_lst_of_products()
@@ -46,16 +47,20 @@ def main():
 
     # get lst of route df before filling
     for bom in lst_of_bom_obj:
+        print(f"top parent:{bom.top_parent}")
         lst_of_route_df_before.append(bom.get_route_df())
 
     # then add each df in route df into a new separte file
 
 
 @xw.func
-def get_route_data1():
-    sheet = wb.sheets["Item1"]
+def get_route_data():
+    sheet = wb.sheets.active
     parent = sheet.range("A2").value
-    route = lst_of_route_df_before[0]
+    for bom in lst_of_bom_obj:
+        if float(bom.top_parent) == float(parent):
+            route = bom.get_route_df()
+
     route["item code"] = pd.to_numeric(route["item code"], errors="ignore")
     # route = route.sort_values(by=["item code"], ascending=False)
 
@@ -69,13 +74,21 @@ def get_route_data1():
 
 
 @xw.func
-def get_item_data1():
+def get_item_data():
     global all_route_df
-
+    active_sheet = wb.sheets.active
+    active_sheet_name = active_sheet.name
+    print(f"active sheet name : {active_sheet_name}")
     # get routing after
-    sheet = wb.sheets["Item1"]
+    sheet = wb.sheets[f"Item{active_sheet_name[-1]}"]
     route = sheet.range("A3:BA203").options(
         pd.DataFrame, expand='table',  index=False).value
+
+    parent = sheet.range("A2").value
+    if parent:
+        for bom in lst_of_bom_obj:
+            if float(bom.top_parent) == float(parent):
+                products = bom.get_lst_of_products()
 
     all_route_df = pd.concat([all_route_df, route])
 
@@ -84,20 +97,26 @@ def get_item_data1():
     # need to remove the last one if the same button clicked again tbs
     lst_of_route_df_after.append(route)
 
-    for product in lst_of_products[0].copy():
+    for product in products.copy():
         print(f"-------------{product.code}------------")
-        product_route = route[route["item code"] == float(product.code)]
+        try:
+            product_route = route[route["item code"] == float(product.code)]
+        except:
+            product_route = route[route["item code"] == product.code]
+
         product_route.dropna(
             subset=["std route", 'copy route', 'dept1'], how='all', inplace=True)
+        if len(product_route)>0:
+            if pd.notna(product_route["std route"].to_list()[0]):
+                print(f"product code:{product.code} has a std route")
 
-        if pd.notna(product_route["std route"].to_list()[0]):
-            print(f"product code:{product.code} has a std route")
+                product.std_route = True
 
-            product.std_route = True
-
+        print("product route:")
+        print(product_route)
         if len(product_route) == 0:
             print(f"product code:{product.code} has no route")
-            lst_of_products[0].pop(lst_of_products[0].index(product))
+            products.pop(products.index(product))
             continue
 
         product.check_copy_route(product_route)
@@ -111,9 +130,9 @@ def get_item_data1():
 
         product.assign_process()
 
-    routing = Routing(lst_of_products[0])
+    routing = Routing(products)
 
-    sheet = wb.sheets["r1"]
+    sheet = wb.sheets.active
     sheet.range("B4").options(index=False, expand='table',
                               header=False).value = routing.get_wip_data()
     sheet.range("B:B").number_format = '0'
@@ -125,3 +144,4 @@ def get_item_data1():
     sheet.range("L4").options(index=False, expand='table',
                               header=False).value = routing.get_resource_data()
     sheet.range("L:L").number_format = '0'
+

@@ -38,16 +38,15 @@
 # to do
 
 - Add each paint qty, weld qty to each assembly by analysing the product tree and know which assembly is this raw mat belongs to
-- Add up to 5 sheets
-- Add set of standard routing
 - Add send mail func
 - Add dataloader func
 - controller on routing to check max and min rate permitted
 
 # Doing
+- Add up to 5 sheets
 
-- Add the ability to copy routing from another code in the workbook
 
 # Done
-
+- Add set of standard routing
+- Add the ability to copy routing from another code in the workbook
 - Add process factors algorithm to calculate rate
