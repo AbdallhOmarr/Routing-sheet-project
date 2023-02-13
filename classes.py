@@ -49,6 +49,8 @@ class Product:
         # product will have processes
         self.lst_of_processes = []
 
+        self.std_route = False
+
     def get_product_vector(self,):
         # this will return product vector to calculate process cycle time
         product_vector = [self.main_category, self.sub_category, self.minor_category,
@@ -89,7 +91,6 @@ class Product:
             process = Process(process_data["code"].to_list()[
                               0], op_seq, no_of_cuts)
             process.assign_department(dept_data["code"].to_list()[0])
-            print(f"machine is {type(machine)}")
             if machine != "NaN":
                 process.assign_machine(
                     machine_data["code"].to_list()[0], 1, res_seq)
@@ -172,18 +173,25 @@ class Product:
 
         return lst_of_resource_data
 
-    def get_route(self, df):
-        self.route = df.set_index("item code").stack().reset_index()
-        self.copy_route = self.route["copy route"].to_list()
+    def check_copy_route(self, df):
+
+        self.copy_route = df["copy route"].to_list()
+        print(self.copy_route)
         if len(self.copy_route) >= 1:
             self.copy_route = self.copy_route[0]
         else:
             self.copy_route = None
+
+    def get_route(self, df):
+        print(self.std_route)
+        if self.std_route == False:
+            self.route = df.set_index("item code").stack().reset_index()
+        else:
+            self.route = self.get_std_route(df["std route"].to_list()[0])
         self.get_route_json()
 
     def get_route_json(self):
         self.route_processed = []
-
         route_dict = {
             "department": "dept1",
             "process": "process1",
@@ -207,15 +215,22 @@ class Product:
             if "no" in v["level_1"]:
                 route["no of cuts"] = v[0]
                 route["Op Seq"] = int(v["level_1"][-1])*10
+
             self.route_processed.append(route)
+
         self.route_processed = pd.DataFrame(self.route_processed)
         self.route_processed = self.route_processed.dropna(subset=["Op Seq"])
+
         grouped = self.route_processed.groupby("Op Seq")
 
         # Aggregate the data in each group as desired
         aggregated = grouped.agg(lambda x: x.value_counts(
         ).index[0] if x.notnull().any() else "NaN").reset_index()
         self.route_processed = aggregated.copy()
+
+    def get_std_route(self, id):
+        route = StaticData().get_from_std_routing(id)
+        return route
 
 
 class Bom:
@@ -372,7 +387,6 @@ class Process:
 
         # rate should be a dot product between product vector and process factors !?
         # for example the process factor for the saw process is as below
-        print(self.get_process_factors())
 
         max_rate = self.get_process_factors().values.tolist()[0][-2]
         min_rate = self.get_process_factors().values.tolist()[0][-1]
@@ -460,6 +474,7 @@ class StaticData:
         self.load_machines_excel()
         self.load_labors_excel()
         self.load_process_factors_excel()
+        self.load_std_routing()
 
     def load_department_excel(self):
         self.dept_df = self.wb.sheets["department"].range("A1:c100").options(
@@ -486,6 +501,12 @@ class StaticData:
             pd.DataFrame, expand='table', index=False).value
         self.process_factors_df.dropna(how="all", inplace=True)
 
+    def load_std_routing(self):
+        self.std_routing_df = self.wb.sheets["std routing"].range("A1:AY10").options(
+            pd.DataFrame, expand="table", index=False
+        ).value
+        self.std_routing_df.dropna(inplace=True)
+
     def get_from_dept_by_code(self, code):
         filtered_data = self.dept_df[self.dept_df["code"] == code]
         return filtered_data
@@ -495,8 +516,6 @@ class StaticData:
         return filtered_data
 
     def get_from_process(self, dept_id, operation_desc):
-        print(f"op: {operation_desc}")
-        print(f"dept: {dept_id}")
         filtered_data = self.process_df[(self.process_df["description"] == operation_desc) & (
             self.process_df["department id"] == dept_id)]
         return filtered_data
@@ -511,9 +530,12 @@ class StaticData:
         return filtered_data
 
     def get_from_process_factors(self, process_code, machine_code):
-        print(f"process code : {process_code}, machine code : {machine_code}")
         filtered_data = self.process_factors_df[(self.process_factors_df["process code"] == process_code) & (
             self.process_factors_df["machine code"] == machine_code)]
+        return filtered_data
+
+    def get_from_std_routing(self, id):
+        filtered_data = self.std_routing_df[self.std_routing_df["std route"] == id]
         return filtered_data
 
 
