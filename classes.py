@@ -403,18 +403,23 @@ class Process:
         process_vector = self.get_process_factors().values.tolist()[0][6:]
         product_vector = product_vector[3:]
 
+        print(f"product_vector:{product_vector}")
+        print(f"process vector: {process_vector}")
         self.rate = round(
             sum([a * b for a, b in zip(product_vector, process_vector)]), 2)
+
+        print(f"rate :{self.rate}")
         self.check_no_of_resource()
         if self.no_of_cuts != "NaN":
             self.rate = self.rate / self.no_of_cuts
         else:
+            print("errorr")
             pass
 
-        if self.rate > max_rate:
-            self.rate = max_rate
-        elif self.rate < min_rate:
-            self.rate = min_rate
+        # if self.rate > max_rate:
+        #     self.rate = max_rate
+        # elif self.rate < min_rate:
+        #     self.rate = min_rate
 
         self.min_order_qty = round(self.rate/50)*50
         # assign rate for machine and labor
