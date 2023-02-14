@@ -21,6 +21,7 @@ all_route_df = pd.DataFrame()
 # wb caller declared once
 wb = xw.Book.caller()
 
+
 @xw.func
 def main():
     # loading excel handler class
@@ -106,7 +107,7 @@ def get_item_data():
 
         product_route.dropna(
             subset=["std route", 'copy route', 'dept1'], how='all', inplace=True)
-        if len(product_route)>0:
+        if len(product_route) > 0:
             if pd.notna(product_route["std route"].to_list()[0]):
                 print(f"product code:{product.code} has a std route")
 
@@ -145,6 +146,7 @@ def get_item_data():
                               header=False).value = routing.get_resource_data()
     sheet.range("L:L").number_format = '0'
 
+
 @xw.func
 def to_dataloader():
     all_dl()
@@ -153,3 +155,33 @@ def to_dataloader():
 @xw.func
 def to_mail():
     maill()
+
+
+@xw.func
+def clear_sheets():
+    wb = xw.Book.caller()
+    sheets = ['Item1', 'Item2', 'Item3', 'Item4', 'Item5']
+
+    for sheet in sheets:
+        sheet = wb.sheets[sheet]
+        sheet.range("A4:BC205").value = ""
+        sheet.range("A4:E205").color = None
+        for col in sheet.range("F1:bc205").columns:
+            if (col.column - 1) % 5 == 0:
+                col.color = (0, 0, 0)  # Set skipped columns to black
+            else:
+                col.color = None  # Set non-skipped columns to default color
+    print("Sheets cleared")
+
+    sheets = ['r1', 'r2', 'r3', 'r4', 'r5', "route"]
+    for sheet in sheets:
+        sheet = wb.sheets[sheet]
+        sheet.range("B4:R10000").value = ""
+        sheet.range("B4:R10000").color = None
+        
+    print("Sheets cleared")
+
+
+@xw.func
+def append():
+    append_routing()

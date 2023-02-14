@@ -20,10 +20,53 @@ import pyautogui as pa
 import win32com.client as win32
 
 cwd = os.path.realpath(
-            os.path.join(os.getcwd(), os.path.dirname(__file__)))
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 pa.FAILSAFE = True
 warnings.filterwarnings("ignore")
+
+
+@ xw.func
+def append_routing():
+    wb = xw.Book.caller()
+    sheet1 = wb.sheets.active
+    # clear current routing
+    sheet1.range('B4:S1000').value = ""
+
+    # table1
+    table_1 = pd.DataFrame()
+    for i in range(1, 6):
+        rf = wb.sheets["r"+str(i)]
+        table1 = rf.range("B3:E1000").options(pd.DataFrame, index=False).value
+        table_1 = table_1.append(table1)
+
+    table_1.drop_duplicates(keep='first', inplace=True, ignore_index=True)
+    sheet1.range('B3').options(index=False, expand='table').value = table_1
+
+    table_2 = pd.DataFrame()
+
+    for i in range(1, 6):
+        rf = wb.sheets["r"+str(i)]
+        table2 = rf.range("G3:J1000").options(pd.DataFrame, index=False).value
+        table_2 = table_2.append(table2)
+
+    table_2.drop_duplicates(keep='first', inplace=True, ignore_index=True)
+    sheet1.range('G3').options(index=False, expand='table').value = table_2
+
+    table_3 = pd.DataFrame()
+
+    for i in range(1, 6):
+        rf = wb.sheets["r"+str(i)]
+        table3 = rf.range("L3:R1000").options(pd.DataFrame, index=False).value
+        table_3 = table_3.append(table3)
+
+    table_3.drop_duplicates(keep='first', inplace=True, ignore_index=True)
+    sheet1.range('L3').options(index=False, expand='table').value = table_3
+
+    # for i in range(1, 6):
+    #     rf = wb.sheets["r"+str(i)]
+    #     rf.range('B4:S1000').options(index=False, expand='table').value = ""
+
 
 @ xw.func
 def all_dl():
@@ -553,7 +596,7 @@ def clear_sheets():
 def maill():
     mails_to = []
     mails_cc = []
-    with open(cwd+"\mails.txt","r") as file:
+    with open(cwd+"\mails.txt", "r") as file:
         for line in file.readlines():
             if line.strip().lower() == "to":
                 to_lst = True
