@@ -75,7 +75,10 @@ class Product:
             department = v["department"]
             process = v["process"]
             machine = v["machine"]
-            no_of_cuts = v["no of cuts"]
+            try:
+                no_of_cuts = v["no of cuts"]
+            except:
+                no_of_cuts = 1
             op_seq = v["Op Seq"]
             res_seq = 10
             dept_data = StaticData().get_from_dept(department)
@@ -185,12 +188,14 @@ class Product:
         if self.std_route == False:
             self.route = df.set_index("item code").stack().reset_index()
         else:
-            self.std_routing_df = self.get_std_route(df["std route"].to_list()[0])
-            merged = pd.merge(df,self.std_routing_df,on="std route",how ="left",suffixes=("_x",""))
-            merged.dropna(inplace=True,axis=1)
+            self.std_routing_df = self.get_std_route(
+                df["std route"].to_list()[0])
+            merged = pd.merge(df, self.std_routing_df,
+                              on="std route", how="left", suffixes=("_x", ""))
+            merged.dropna(inplace=True, axis=1)
             self.route = merged.set_index("item code").stack().reset_index()
 
-            # merge std route df with route df 
+            # merge std route df with route df
 
         self.get_route_json()
 
@@ -539,7 +544,7 @@ class StaticData:
 
     def get_from_std_routing(self, id):
         filtered_data = self.std_routing_df[self.std_routing_df["std route"] == id]
-        filtered_data.dropna(inplace=True,axis=1)
+        filtered_data.dropna(inplace=True, axis=1)
 
         return filtered_data
 
