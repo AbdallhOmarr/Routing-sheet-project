@@ -24,6 +24,18 @@ wb = xw.Book.caller()
 
 @xw.func
 def main():
+    global lst_of_bom_obj
+    global lst_of_products
+    global lst_of_route_df_before
+    global lst_of_route_df_after
+    global all_route_df
+    global wb
+    wb = xw.Book.caller()
+    lst_of_bom_obj = []
+    lst_of_products = []
+    lst_of_route_df_before = []
+    lst_of_route_df_after = []
+    all_route_df = pd.DataFrame()
     # loading excel handler class
     excelHandler = ExcelHandler()
 
@@ -178,7 +190,7 @@ def clear_sheets():
         sheet = wb.sheets[sheet]
         sheet.range("B4:R10000").value = ""
         sheet.range("B4:R10000").color = None
-        
+
     print("Sheets cleared")
 
 

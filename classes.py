@@ -54,7 +54,8 @@ class Product:
     def get_product_vector(self,):
         # this will return product vector to calculate process cycle time
         product_vector = [self.main_category, self.sub_category, self.minor_category,
-                          self.length, self.width, self.thickness, self.weight, self.comp_qty,
+                          self.length, self.width, self.thickness, self.length *
+                          self.width, self.weight, self.comp_qty,
                           self.paint_qty, self.thinner_qty, self.galv_qty, self.welding_qty]
         product_vector = [x if x != None else 0 for x in product_vector]
         df = pd.DataFrame({'product_vector': product_vector})
@@ -361,6 +362,7 @@ class Process:
             machine_code = 0
 
         factors_df = StaticData().get_from_process_factors(self.code, machine_code)
+        factors_df.fillna(0, inplace=True)
         return factors_df
 
     def assign_department(self, dept_code):
@@ -399,14 +401,21 @@ class Process:
 
         max_rate = self.get_process_factors().values.tolist()[0][-2]
         min_rate = self.get_process_factors().values.tolist()[0][-1]
-
-        process_vector = self.get_process_factors().values.tolist()[0][6:]
+        constant = self.get_process_factors().values.tolist()[0][-3]
+        process_vector = self.get_process_factors().values.tolist()[0][5:]
         product_vector = product_vector[3:]
 
         print(f"product_vector:{product_vector}")
         print(f"process vector: {process_vector}")
-        self.rate = round(
-            sum([a * b for a, b in zip(product_vector, process_vector)]), 2)
+        print(f"constant: {constant}")
+        self.rate = 1
+        for ix, a in enumerate(product_vector):
+            if float(process_vector[ix]) == -1:
+                self.rate *= self.rate / a
+            elif float(process_vector[ix]) == 1:
+                self.rate *= self.rate * a
+
+        self.rate = round(self.rate, 2) + constant
 
         print(f"rate :{self.rate}")
         self.check_no_of_resource()
@@ -416,10 +425,10 @@ class Process:
             print("errorr")
             pass
 
-        # if self.rate > max_rate:
-        #     self.rate = max_rate
-        # elif self.rate < min_rate:
-        #     self.rate = min_rate
+        if self.rate > max_rate:
+            self.rate = max_rate
+        elif self.rate < min_rate:
+            self.rate = min_rate
 
         self.min_order_qty = round(self.rate/50)*50
         # assign rate for machine and labor
