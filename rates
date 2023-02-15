@@ -1,0 +1,33 @@
+=IFERROR(IF(OR(ISBLANK(K4),ISBLANK(L4)),""
+,IF(O4=1,  1/((10+(F4*16))/60/60),
+
+IF(O4=11,1/((20+(F4*16))/60/60),
+IF(O4=2,1/((10+(E4*8))/60/60*P4),
+IF(O4=3,1/((I4*1000*3.5*E4/60/60)+(P4*1.5/60/60)+(F4*2.2/60)),
+IF(O4=4,1/(E4*0.04),
+IF(AND(O4=5,ISNUMBER(P4)),1/((G4*5+10*P4)/60/60),
+IF(O4=6,1/((G4*10+J4*0.15)/60/60),
+IF(AND(O4=8,ISNUMBER(P4)),1/((G4*20+60*P4)/60/60),
+IF(AND(O4=19,ISNUMBER(P4)),1/(P4/10*10/60/60),
+IF(AND(O4=16,ISNUMBER(P4)),1/(P4*5.5/60/60),
+IF(O4=17,1/((20+(E4*15))/60/60),
+IF(O4=13,1/(G4*100*0.75/60/60),
+IF(AND(O4=9,ISNUMBER(P4)),1/((P4*0.5)/10/60),
+IF(O4=500,VLOOKUP(M4,RD!$D:$Q,14,FALSE),
+IF(O4=20,1/(H4*10),
+IF(O4=30,10/F4,
+IF(AND(O4=12,ISNUMBER(P4)),1/(P4/100/60),
+IF(O4=1000,1/(G4*1.07),
+IF(O4=1010,1,
+IF(AND(O4=7,ISNUMBER(P4)),1/((G4*5+P4*20)/60/60)))))))))))))))))))))),"")
+
+
+
+F4 = area or paint
+E4 = Priemeter or category
+G4 = Length or weight
+H4 = Width or welding 
+J4 = PHI
+
+
+1/((10+((area/1000000)*16))/60/60)

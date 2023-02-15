@@ -6,13 +6,14 @@
 import glob
 import math
 import os
+import random
 import pandas as pd
 import xlwings as xw
 from collections import Counter
 
 
 class Product:
-    def __init__(self, code, description, main_category, sub_category, minor_category, item_type, weight, length, width, thickness, comp_qty, status, raw_material=None, locator=None, paint_qty=0, thinner_qty=0, galv_qty=0, welding_qty=0) -> None:
+    def __init__(self, code, description, main_category, sub_category, minor_category, item_type, weight, length, width, thickness, comp_qty, mat_qty, status, raw_material=None, locator=None, paint_qty=0, thinner_qty=0, galv_qty=0, welding_qty=0) -> None:
 
         # main attirbutes
         self.code = code
@@ -22,6 +23,15 @@ class Product:
         self.sub_category = sub_category
         self.minor_category = minor_category
         self.item_type = item_type
+
+        if self.main_category == "القطاعات":
+            self.category_factor = 0.4
+        elif self.main_category == "المواسير":
+            self.category_factor = 0.9
+        elif self.main_category == "مبروم":
+            self.category_factor = 0.6
+        else:
+            self.category_factor = 1
 
         # physical attributes
         self.weight = weight
@@ -39,7 +49,7 @@ class Product:
 
         # manufacturing related attributes
         self.comp_qty = comp_qty
-
+        self.mat_qty = mat_qty
         # status attributes
         self.status = status
 
@@ -57,14 +67,27 @@ class Product:
                           self.length, self.width, self.thickness, self.length *
                           self.width, self.weight, self.comp_qty,
                           self.paint_qty, self.thinner_qty, self.galv_qty, self.welding_qty]
-        product_vector = [x if x != None else 0 for x in product_vector]
-        df = pd.DataFrame({'product_vector': product_vector})
 
-        # Replace NaN values with 0
-        df.fillna(0, inplace=True)
+        product_vector = {
+            "main category": self.main_category,
+            "sub category": self.sub_category,
+            "minor category": self.minor_category,
+            "length": self.length,
+            "width": self.width,
+            "area": self.length*self.width,
+            "thickness": self.thickness,
+            "weight": self.weight,
+            "comp qty": self.comp_qty,
+            "mat_qty": self.mat_qty,
+            "paint qty": self.paint_qty,
+            "thinner qty": self.thinner_qty,
+            "galv qty": self.galv_qty,
+            "welding qty": self.welding_qty,
+            "cat": self.category_factor,
+        }
 
-        # Convert the DataFrame back to a list
-        product_vector = df['product_vector'].tolist()
+        product_vector = {k: 0 if v is None or (isinstance(
+            v, (float, int)) and math.isnan(v)) else v for k, v in product_vector.items()}
 
         return product_vector
 
@@ -262,7 +285,7 @@ class Bom:
         for i, v in self.bom_df.iterrows():
             if parent_added == False:
                 parent = Product(v["Top Parent"], v["Parent Description"], None, None, None, None, self.bom_df["Calc Unit Weight"].sum(
-                ), self.bom_df["Comp Unit Length"].max(), self.bom_df["Comp Unit Width"].max(), None, None, v["Parent Item Status"])
+                ), self.bom_df["Comp Unit Length"].max(), self.bom_df["Comp Unit Width"].max(), None, None, None, v["Parent Item Status"])
                 for ix, vx in self.bom_df.iterrows():
                     if vx["Comp Sub Category"] == "سلك اللحام":
                         parent.welding_qty += float(vx["Comp Qty"])
@@ -272,12 +295,18 @@ class Bom:
                         parent.thinner_qty += float(vx["Comp Qty"])
                     elif vx["Comp Sub Category"] == "جلفنة":  # I should recheck this condition
                         parent.galv_qty += float(vx["Comp Qty"])
+
                 self.top_parent = parent.code
                 lst_of_products.append(parent)
                 parent_added = True
-            if (v["Comp Item Type"] == "Part") or (v["Component Item"][:3] in parts_code_start):
+            if (v["Comp Item Type"] == "Part") or (str(v["Component Item"])[:3] in parts_code_start):
+                try:
+                    mat_qty = self.bom_df[self.bom_df["Assembly Item"]
+                                          == v["Component Item"]]["Comp Qty"].to_list()[0]
+                except:
+                    mat_qty = 1
                 product = Product(v["Component Item"], v["Comp Desc"], v["Comp Major Category"], v["Comp Sub Category"], v["Comp Minor Category"], v["Comp Item Type"],
-                                  v["Calc Unit Weight"], v["Comp Unit Length"], v["Comp Unit Width"], v["Comp Unit Height"], v["Comp Qty"], v["Comp Item Status"], v["Related Item"])
+                                  v["Calc Unit Weight"], v["Comp Unit Length"], v["Comp Unit Width"], v["Comp Unit Height"], v["Comp Qty"], mat_qty, v["Comp Item Status"], v["Related Item"])
                 lst_of_products.append(product)
         return lst_of_products
 
@@ -297,7 +326,7 @@ class Bom:
         # self.bom_df = self.bom_df.sort_values(by=parent_code)
 
         for i, v in self.bom_df.iterrows():
-            if (v["Component Item"].startswith("RE")):
+            if (str(v["Component Item"]).startswith("RE")):
                 continue
             item_dict = {
                 "item code": v["Component Item"],
@@ -363,7 +392,8 @@ class Process:
 
         factors_df = StaticData().get_from_process_factors(self.code, machine_code)
         factors_df.fillna(0, inplace=True)
-        return factors_df
+
+        return factors_df.reset_index()
 
     def assign_department(self, dept_code):
         self.department = Department(dept_code)
@@ -395,27 +425,28 @@ class Process:
         # after calc rate
         # assign min order qty
         # value of multiple of 50 near the calc_rate
+        print(type(product_vector))
+        process_vector = self.get_process_factors()
+        equation = process_vector.loc[0, "equation"]
+        print(f"equation:{equation}")
+
+        substitutions = {
+            var_name: product_vector[var_name] for var_name in product_vector}
+
+        # Evaluate the equation with the substitutions
+        result = eval(equation, {}, substitutions)
+        print(
+            f'length:{product_vector["length"]}, width:{product_vector["width"]}, mat qty: {product_vector["mat_qty"]}, rate:{result}')
+        print(result)
 
         # rate should be a dot product between product vector and process factors !?
         # for example the process factor for the saw process is as below
 
-        max_rate = self.get_process_factors().values.tolist()[0][-2]
-        min_rate = self.get_process_factors().values.tolist()[0][-1]
-        constant = self.get_process_factors().values.tolist()[0][-3]
-        process_vector = self.get_process_factors().values.tolist()[0][5:]
-        product_vector = product_vector[3:]
+        max_rate = process_vector.loc[0, "max"]
+        min_rate = process_vector.loc[0, "min"]
+        constant = process_vector.loc[0, "constant"]
 
-        print(f"product_vector:{product_vector}")
-        print(f"process vector: {process_vector}")
-        print(f"constant: {constant}")
-        self.rate = 1
-        for ix, a in enumerate(product_vector):
-            if float(process_vector[ix]) == -1:
-                self.rate *= self.rate / a
-            elif float(process_vector[ix]) == 1:
-                self.rate *= self.rate * a
-
-        self.rate = round(self.rate, 2) + constant
+        self.rate = round(result, 2) + constant
 
         print(f"rate :{self.rate}")
         self.check_no_of_resource()
@@ -552,8 +583,10 @@ class StaticData:
         return filtered_data
 
     def get_from_process_factors(self, process_code, machine_code):
+
         filtered_data = self.process_factors_df[(self.process_factors_df["process code"] == process_code) & (
             self.process_factors_df["machine code"] == machine_code)]
+
         return filtered_data
 
     def get_from_std_routing(self, id):
