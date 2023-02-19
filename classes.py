@@ -26,12 +26,35 @@ class Product:
 
         if self.main_category == "القطاعات":
             self.category_factor = 0.4
+
+            # perimeter to be determined later
+
         elif self.main_category == "المواسير":
+
             self.category_factor = 0.9
+
+            # try:
+            #     self.diameter = float(diameter)
+            #     self.perimeter = math.pi*float(self.diameter)
+
+            # except:
+            #     self.diameter = 0
+            #     self.perimeter = 0
+
         elif self.main_category == "مبروم":
             self.category_factor = 0.6
+            # try:
+            #     self.diameter = float(diameter)
+            #     self.perimeter = math.pi*float(self.diameter)
+
+            # except:
+            #     self.diameter = 0
+            #     self.perimeter = 0
+
         else:
             self.category_factor = 1
+            self.diameter = 0
+            self.perimeter = 0
 
         # physical attributes
         self.weight = weight
@@ -50,6 +73,7 @@ class Product:
         # manufacturing related attributes
         self.comp_qty = comp_qty
         self.mat_qty = mat_qty
+        self.no_of_cuts = 1
         # status attributes
         self.status = status
 
@@ -63,27 +87,30 @@ class Product:
 
     def get_product_vector(self,):
         # this will return product vector to calculate process cycle time
-        product_vector = [self.main_category, self.sub_category, self.minor_category,
-                          self.length, self.width, self.thickness, self.length *
-                          self.width, self.weight, self.comp_qty,
-                          self.paint_qty, self.thinner_qty, self.galv_qty, self.welding_qty]
+        # product_vector = [self.main_category, self.sub_category, self.minor_category,
+        #                   self.length, self.width, self.thickness,self.diameter, self.length *
+        #                   self.width, self.weight, self.comp_qty,
+        #                   self.paint_qty, self.thinner_qty, self.galv_qty, self.welding_qty]
 
         product_vector = {
-            "main category": self.main_category,
-            "sub category": self.sub_category,
-            "minor category": self.minor_category,
+            "main_category": self.main_category,
+            "sub_category": self.sub_category,
+            "minor_category": self.minor_category,
             "length": self.length,
             "width": self.width,
+            "diameter": self.diameter,
+            "perimeter": self.perimeter,
             "area": self.length*self.width,
             "thickness": self.thickness,
             "weight": self.weight,
-            "comp qty": self.comp_qty,
+            "comp_qty": self.comp_qty,
             "mat_qty": self.mat_qty,
-            "paint qty": self.paint_qty,
-            "thinner qty": self.thinner_qty,
-            "galv qty": self.galv_qty,
-            "welding qty": self.welding_qty,
+            "paint_qty": self.paint_qty,
+            "thinner_qty": self.thinner_qty,
+            "galv_qty": self.galv_qty,
+            "welding_qty": self.welding_qty,
             "cat": self.category_factor,
+            "no": self.no_of_cuts
         }
 
         product_vector = {k: 0 if v is None or (isinstance(
@@ -100,9 +127,25 @@ class Product:
             process = v["process"]
             machine = v["machine"]
             try:
-                no_of_cuts = v["no of cuts"]
+                print(f'no of cuts:{v["no of cuts"]}')
+
+                if v["no of cuts"] == None:
+                    print("no of cuts is None")
+
+                elif pd.isna(v["no of cuts"]) == True:
+                    print("no of cuts is Nan")
+
+                elif v["no of cuts"] == "NaN":
+                    print("no of cuts is STR NaN")
+
+                else:
+                    self.no_of_cuts = float(v["no of cuts"])
+
+                print(f'no of cuts:{v["no of cuts"]}')
+
             except:
-                no_of_cuts = 1
+                print("impossible to excute")
+
             op_seq = v["Op Seq"]
             res_seq = 10
             dept_data = StaticData().get_from_dept(department)
@@ -116,7 +159,7 @@ class Product:
                 process_data["id"].to_list()[0])
 
             process = Process(process_data["code"].to_list()[
-                              0], op_seq, no_of_cuts)
+                              0], op_seq, self.no_of_cuts)
             process.assign_department(dept_data["code"].to_list()[0])
             if machine != "NaN":
                 process.assign_machine(
@@ -211,6 +254,7 @@ class Product:
     def get_route(self, df):
         if self.std_route == False:
             self.route = df.set_index("item code").stack().reset_index()
+
         else:
             self.std_routing_df = self.get_std_route(
                 df["std route"].to_list()[0])
@@ -220,6 +264,16 @@ class Product:
             self.route = merged.set_index("item code").stack().reset_index()
 
             # merge std route df with route df
+        try:
+            self.diameter = float(df["dia"])
+            self.thickness = float(df["thickness"])
+            print(df["dia"])
+
+            self.perimeter = math.pi*self.diameter
+        except:
+            self.diameter = 1
+            self.perimeter = 1
+            self.thickness=0
 
         self.get_route_json()
 
@@ -427,6 +481,9 @@ class Process:
         # value of multiple of 50 near the calc_rate
         print(type(product_vector))
         process_vector = self.get_process_factors()
+        if process_vector.loc[0,"feed rate"] != None or pd.isna(process_vector.loc[0,"feed rate"]) ==False or process_vector.loc[0,"feed rate"] != "NaN":
+            product_vector["feed_rate"]=float(process_vector.loc[0,"feed rate"])
+
         equation = process_vector.loc[0, "equation"]
         print(f"equation:{equation}")
 
@@ -435,9 +492,6 @@ class Process:
 
         # Evaluate the equation with the substitutions
         result = eval(equation, {}, substitutions)
-        print(
-            f'length:{product_vector["length"]}, width:{product_vector["width"]}, mat qty: {product_vector["mat_qty"]}, rate:{result}')
-        print(result)
 
         # rate should be a dot product between product vector and process factors !?
         # for example the process factor for the saw process is as below
@@ -448,13 +502,9 @@ class Process:
 
         self.rate = round(result, 2) + constant
 
-        print(f"rate :{self.rate}")
         self.check_no_of_resource()
-        if self.no_of_cuts != "NaN":
-            self.rate = self.rate / self.no_of_cuts
-        else:
-            print("errorr")
-            pass
+
+        # self.rate = self.rate / self.no_of_cuts
 
         if self.rate > max_rate:
             self.rate = max_rate
@@ -471,6 +521,9 @@ class Process:
 
         for labor in self.labors:
             labor.assign_rate(self.rate)
+
+        print(
+            f'length:{product_vector["length"]}, width:{product_vector["width"]}, thickness: {product_vector["thickness"]},dia: {product_vector["diameter"]} mat qty: {product_vector["mat_qty"]}, no:{product_vector["no"]} rate:{result}')
 
 
 class Routing:

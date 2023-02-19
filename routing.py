@@ -94,15 +94,16 @@ def get_item_data():
     print(f"active sheet name : {active_sheet_name}")
     # get routing after
     sheet = wb.sheets[f"Item{active_sheet_name[-1]}"]
-    route = sheet.range("A3:BA203").options(
+    route = sheet.range("A3:BD203").options(
         pd.DataFrame, expand='table',  index=False).value
+
 
     parent = sheet.range("A2").value
     if parent:
         for bom in lst_of_bom_obj:
             if float(bom.top_parent) == float(parent):
                 products = bom.get_lst_of_products()
-
+                
     all_route_df = pd.concat([all_route_df, route])
 
     # route.dropna(subset=["dept1"], inplace=True)
