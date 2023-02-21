@@ -50,8 +50,6 @@ def main():
     boms_df = excelHandler.get_bom_data()
 
     # create loop for each bom to add it to a new sheet
-    print("lst of boms")
-    print(boms_df)
     for bom_df in boms_df:
         bom_obj = Bom(bom_df)
         products = bom_obj.get_lst_of_products()
@@ -60,7 +58,6 @@ def main():
 
     # get lst of route df before filling
     for bom in lst_of_bom_obj:
-        print(f"top parent:{bom.top_parent}")
         lst_of_route_df_before.append(bom.get_route_df())
 
     # then add each df in route df into a new separte file
@@ -91,7 +88,6 @@ def get_item_data():
     global all_route_df
     active_sheet = wb.sheets.active
     active_sheet_name = active_sheet.name
-    print(f"active sheet name : {active_sheet_name}")
     # get routing after
     sheet = wb.sheets[f"Item{active_sheet_name[-1]}"]
     route = sheet.range("A3:BD203").options(
@@ -121,20 +117,15 @@ def get_item_data():
             subset=["std route", 'copy route', 'dept1'], how='all', inplace=True)
         if len(product_route) > 0:
             if pd.notna(product_route["std route"].to_list()[0]):
-                print(f"product code:{product.code} has a std route")
 
                 product.std_route = True
 
-        print("product route:")
-        print(product_route)
         if len(product_route) == 0:
-            print(f"product code:{product.code} has no route")
             products.pop(products.index(product))
             continue
 
         product.check_copy_route(product_route)
         if pd.notna(product.copy_route):
-            print(f"product code:{product.code} is copy route")
             product_route = all_route_df[all_route_df["item code"]
                                          == product.copy_route]
             product.get_route(product_route)
@@ -177,13 +168,12 @@ def clear_sheets():
     for sheet in sheets:
         sheet = wb.sheets[sheet]
         sheet.range("A4:BC205").value = ""
-        sheet.range("A4:E205").color = None
-        for col in sheet.range("F1:bc205").columns:
-            if (col.column - 1) % 5 == 0:
+        sheet.range("A1:G205").color = None
+        for col in sheet.range("H1:be205").columns:
+            if (col.column - 3) % 5 == 0:
                 col.color = (0, 0, 0)  # Set skipped columns to black
             else:
                 col.color = None  # Set non-skipped columns to default color
-    print("Sheets cleared")
 
     sheets = ['r1', 'r2', 'r3', 'r4', 'r5', "route"]
     for sheet in sheets:

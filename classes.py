@@ -12,6 +12,37 @@ import xlwings as xw
 from collections import Counter
 
 
+### used in calculating routing rates ###
+def calc_laser(l, w, t, n):
+    '''This method to calculate laser based on laser table from Purchasing'''
+    prm = (2*(l+w))+(15*math.pi*n)
+    laser_table = {1: 9, 2:   6.25, 3: 4.25, 4: 3.5, 5: 3.15, 6: 2.95, 8: 2.5, 10: 1.95, 12: 1.5, 14: 1.05, 16: 0.9, 18: 0.75, 20: 0.65, 22: 0.6
+                   }
+
+    # convert prm from mm to m
+    prm = prm/1000
+    # t = str(t)
+    # t = t.split('.')[0]
+
+    while True:
+        if t in laser_table.keys():
+            break
+        t = float(t)
+        if t < 22:
+            # t = str(t+1)
+            t += 1
+        if t > 22:
+            t = 22
+        else:
+            # t = str(t-1)
+            t += 1
+
+    laser_power = laser_table[t]
+    laser_speed = prm/laser_power
+    productivity = 60/laser_speed
+    return productivity
+
+
 class Product:
     def __init__(self, code, description, main_category, sub_category, minor_category, item_type, weight, length, width, thickness, comp_qty, mat_qty, status, raw_material=None, locator=None, paint_qty=0, thinner_qty=0, galv_qty=0, welding_qty=0) -> None:
 
@@ -120,57 +151,58 @@ class Product:
 
     def assign_process(self):
         # this will add a process obj to the lst of processes
-
+        self.route_processed.to_excel(
+            r"C:\Users\abdallah.ashry\source\repos\Routing sheet project\route_processed.xlsx")
         for i, v in self.route_processed.iterrows():
             # get process code
             department = v["department"]
             process = v["process"]
             machine = v["machine"]
+
             try:
-                print(f'no of cuts:{v["no of cuts"]}')
 
                 if v["no of cuts"] == None:
-                    print("no of cuts is None")
+                    self.no_of_cuts = 1
 
                 elif pd.isna(v["no of cuts"]) == True:
-                    print("no of cuts is Nan")
+                    self.no_of_cuts = 1
 
                 elif v["no of cuts"] == "NaN":
-                    print("no of cuts is STR NaN")
+                    self.no_of_cuts = 1
 
                 else:
                     self.no_of_cuts = float(v["no of cuts"])
 
-                print(f'no of cuts:{v["no of cuts"]}')
-
             except:
-                print("impossible to excute")
+                self.no_of_cuts = 1
 
             op_seq = v["Op Seq"]
             res_seq = 10
             dept_data = StaticData().get_from_dept(department)
             process_data = StaticData().get_from_process(
                 dept_data["id"].to_list()[0], process)
-            if machine != "NaN":
+            if (machine != "NaN") and (pd.isna(machine) == False) and (machine is not None):
                 machine_data = StaticData().get_from_machine(
                     process_data["id"].to_list()[0], machine)
-
             labor_data = StaticData().get_from_labor(
                 process_data["id"].to_list()[0])
 
             process = Process(process_data["code"].to_list()[
                               0], op_seq, self.no_of_cuts)
+
             process.assign_department(dept_data["code"].to_list()[0])
-            if machine != "NaN":
+            if (machine != "NaN") and (pd.isna(machine) == False) and (machine is not None):
+
                 process.assign_machine(
-                    machine_data["code"].to_list()[0], 1, res_seq)
+                    machine_data["code"].to_list()[0], machine_data["no_of_machines"].to_list()[0], res_seq)
                 res_seq += 10
 
             for il, vl in labor_data.iterrows():
-                process.assign_labor(vl["code"], 1, res_seq)
+                process.assign_labor(vl["code"], vl["no_of_labors"], res_seq)
                 res_seq += 10
 
             process.calc_rate(self.get_product_vector())
+            process.get_machines()
             # after initializing process append it to the lst of processes for the current code
             self.lst_of_processes.append(process)
 
@@ -267,13 +299,15 @@ class Product:
         try:
             self.diameter = float(df["dia"])
             self.thickness = float(df["thickness"])
-            print(df["dia"])
+            if self.main_category == "القطاعات":
+                self.perimeter = self.diameter
+            elif self.main_category == "المواسير" or self.main_category == "مبروم":
+                self.perimeter = math.pi*self.diameter
 
-            self.perimeter = math.pi*self.diameter
         except:
             self.diameter = 1
             self.perimeter = 1
-            self.thickness=0
+            self.thickness = 1
 
         self.get_route_json()
 
@@ -406,20 +440,21 @@ class Department:
 
 
 class Machine:
-    def __init__(self, code, no_of_resource, res_seq) -> None:
+    def __init__(self, code, no_of_resource, res_seq):
         self.code = code
-        self.no_of_resource = no_of_resource
-        self.res_seq = res_seq
+        self.no_of_resource = float(no_of_resource)
+        self.res_seq = float(res_seq)
 
     def assign_rate(self, rate):
+
         self.rate = rate/self.no_of_resource
 
 
 class Labor:
-    def __init__(self, code, no_of_resource, res_seq) -> None:
+    def __init__(self, code, no_of_resource, res_seq):
         self.code = code
-        self.no_of_resource = no_of_resource
-        self.res_seq = res_seq
+        self.no_of_resource = float(no_of_resource)
+        self.res_seq = float(res_seq)
 
     def assign_rate(self, rate):
         self.rate = rate/self.no_of_resource
@@ -479,13 +514,12 @@ class Process:
         # after calc rate
         # assign min order qty
         # value of multiple of 50 near the calc_rate
-        print(type(product_vector))
         process_vector = self.get_process_factors()
-        if process_vector.loc[0,"feed rate"] != None or pd.isna(process_vector.loc[0,"feed rate"]) ==False or process_vector.loc[0,"feed rate"] != "NaN":
-            product_vector["feed_rate"]=float(process_vector.loc[0,"feed rate"])
+        if process_vector.loc[0, "feed rate"] != None or pd.isna(process_vector.loc[0, "feed rate"]) == False or process_vector.loc[0, "feed rate"] != "NaN":
+            product_vector["feed_rate"] = float(
+                process_vector.loc[0, "feed rate"])
 
         equation = process_vector.loc[0, "equation"]
-        print(f"equation:{equation}")
 
         substitutions = {
             var_name: product_vector[var_name] for var_name in product_vector}
@@ -500,9 +534,13 @@ class Process:
         min_rate = process_vector.loc[0, "min"]
         constant = process_vector.loc[0, "constant"]
 
+        if self.code == "LAS":
+            result = calc_laser(product_vector["length"], product_vector["width"],
+                                product_vector["thickness"], product_vector["no"])
+
         self.rate = round(result, 2) + constant
 
-        self.check_no_of_resource()
+        # self.check_no_of_resource()
 
         # self.rate = self.rate / self.no_of_cuts
 
@@ -516,14 +554,15 @@ class Process:
         try:
             for machine in self.machines:
                 machine.assign_rate(self.rate)
+
         except:
-            pass
+            print("machine rate error")
 
         for labor in self.labors:
             labor.assign_rate(self.rate)
 
-        print(
-            f'length:{product_vector["length"]}, width:{product_vector["width"]}, thickness: {product_vector["thickness"]},dia: {product_vector["diameter"]} mat qty: {product_vector["mat_qty"]}, no:{product_vector["no"]} rate:{result}')
+    def get_machines(self):
+        pass
 
 
 class Routing:
@@ -632,7 +671,8 @@ class StaticData:
         return filtered_data
 
     def get_from_labor(self, process_id):
-        filtered_data = self.labor_df[self.labor_df["operation id"] == process_id]
+        filtered_data = self.labor_df[self.labor_df["operation id"]
+                                      == process_id]
         return filtered_data
 
     def get_from_process_factors(self, process_code, machine_code):
@@ -677,9 +717,6 @@ class ExcelHandler:
         self.parent_items = []
         for i, v in main_df.iterrows():
             self.parent_items.append(v["Items Code"])
-
-        print(f"parents:{self.parent_items}")
-        print("-"*40)
 
     def get_last_10_modified_xlsx_files(self, folder_path):
         all_xlsx_files = glob.glob(os.path.join(folder_path, '*.xlsx'))
