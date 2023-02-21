@@ -538,7 +538,32 @@ class Process:
             result = calc_laser(product_vector["length"], product_vector["width"],
                                 product_vector["thickness"], product_vector["no"])
 
-        self.rate = round(result, 2) + constant
+        print(f"initial result={result}")
+        # adding allowance
+        result_after_allowance = result * 0.8
+        print(f"result_after_allowance={result_after_allowance}")
+
+        print("initial result")
+        # adding material handling factor
+        print(f'weight = {product_vector["weight"]}')
+        material_handling_time = product_vector["weight"]*0.001/60
+        print(f"material handling time:{material_handling_time}")
+        result_after_material_handling = 1 / \
+            ((1/result_after_allowance) + material_handling_time)
+        # adding setup time factor
+        print(
+            f"result_after_material_handling:{result_after_material_handling}")
+
+        # it should be machine related but for now it will be constant until getting setup time for each machine
+
+        setup_time = 0.02/60
+        result_after_setup_time = 1 / \
+            ((1/result_after_material_handling) + setup_time)
+
+        print(f"result_after_setup_time:{result_after_setup_time}")
+
+        self.rate = round(result_after_setup_time, 3) + constant
+        print(f"rate:{self.rate}")
 
         # self.check_no_of_resource()
 
