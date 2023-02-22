@@ -15,7 +15,9 @@ from collections import Counter
 ### used in calculating routing rates ###
 def calc_laser(l, w, t, n):
     '''This method to calculate laser based on laser table from Purchasing'''
-    prm = (2*(l+w))+(15*math.pi*n)
+    print(f"laser equation parameters: l={l}, w={w},t={t},n={n}")
+    prm = (2*(l+w)) + (15*math.pi*n)
+    print(f"perimeter= {prm}")
     laser_table = {1: 9, 2:   6.25, 3: 4.25, 4: 3.5, 5: 3.15, 6: 2.95, 8: 2.5, 10: 1.95, 12: 1.5, 14: 1.05, 16: 0.9, 18: 0.75, 20: 0.65, 22: 0.6
                    }
 
@@ -37,9 +39,15 @@ def calc_laser(l, w, t, n):
             # t = str(t-1)
             t += 1
 
-    laser_power = laser_table[t]
-    laser_speed = prm/laser_power
-    productivity = 60/laser_speed
+    laser_speed = laser_table[t]  # m/min
+    print(f"laser speed = {laser_speed}")
+
+    laser_time = prm/laser_speed  # min
+    print(f"laser time = {laser_time}")
+
+    productivity = 60/laser_time  # production rate item/hr
+    print(f"productivity = {productivity}")
+
     return productivity
 
 
@@ -58,29 +66,11 @@ class Product:
         if self.main_category == "القطاعات":
             self.category_factor = 0.4
 
-            # perimeter to be determined later
-
         elif self.main_category == "المواسير":
-
             self.category_factor = 0.9
-
-            # try:
-            #     self.diameter = float(diameter)
-            #     self.perimeter = math.pi*float(self.diameter)
-
-            # except:
-            #     self.diameter = 0
-            #     self.perimeter = 0
 
         elif self.main_category == "مبروم":
             self.category_factor = 0.6
-            # try:
-            #     self.diameter = float(diameter)
-            #     self.perimeter = math.pi*float(self.diameter)
-
-            # except:
-            #     self.diameter = 0
-            #     self.perimeter = 0
 
         else:
             self.category_factor = 1
@@ -117,12 +107,6 @@ class Product:
         self.std_route = False
 
     def get_product_vector(self,):
-        # this will return product vector to calculate process cycle time
-        # product_vector = [self.main_category, self.sub_category, self.minor_category,
-        #                   self.length, self.width, self.thickness,self.diameter, self.length *
-        #                   self.width, self.weight, self.comp_qty,
-        #                   self.paint_qty, self.thinner_qty, self.galv_qty, self.welding_qty]
-
         product_vector = {
             "main_category": self.main_category,
             "sub_category": self.sub_category,
@@ -295,19 +279,29 @@ class Product:
             merged.dropna(inplace=True, axis=1)
             self.route = merged.set_index("item code").stack().reset_index()
 
-            # merge std route df with route df
         try:
+            print(df["dia"])
             self.diameter = float(df["dia"])
-            self.thickness = float(df["thickness"])
-            if self.main_category == "القطاعات":
-                self.perimeter = self.diameter
-            elif self.main_category == "المواسير" or self.main_category == "مبروم":
-                self.perimeter = math.pi*self.diameter
-
         except:
             self.diameter = 1
+            # merge std route df with route df
+        try:
+            if self.main_category == "القطاعات":
+                self.perimeter = self.diameter
+                try:
+                    self.thickness = float(df["thickness"])
+                except:
+                    self.thickness = 1
+
+            elif self.main_category == "المواسير" or self.main_category == "مبروم":
+                self.perimeter = math.pi*self.diameter
+                try:
+                    self.thickness = float(df["thickness"])
+                except:
+                    self.thickness = 1
+        except:
+            print("part has no perimeter")
             self.perimeter = 1
-            self.thickness = 1
 
         self.get_route_json()
 
@@ -447,7 +441,7 @@ class Machine:
 
     def assign_rate(self, rate):
 
-        self.rate = rate/self.no_of_resource
+        self.rate = round(rate/self.no_of_resource, 3)
 
 
 class Labor:
@@ -457,7 +451,7 @@ class Labor:
         self.res_seq = float(res_seq)
 
     def assign_rate(self, rate):
-        self.rate = rate/self.no_of_resource
+        self.rate = round(rate/self.no_of_resource, 3)
 
 
 class Process:
@@ -519,11 +513,16 @@ class Process:
             product_vector["feed_rate"] = float(
                 process_vector.loc[0, "feed rate"])
 
+        print(
+            f'dia= {product_vector["diameter"]}, perimeter = {product_vector["perimeter"]}, thickness = {product_vector["thickness"]}')
         equation = process_vector.loc[0, "equation"]
-
         substitutions = {
             var_name: product_vector[var_name] for var_name in product_vector}
-
+        print(f"product vector:{product_vector}")
+        print(f"substitutions={substitutions}\nequation={equation}")
+        print(f"equation type : {type(equation)}")
+        if isinstance(equation, float) == True:
+            equation = str(equation)
         # Evaluate the equation with the substitutions
         result = eval(equation, {}, substitutions)
 
@@ -534,6 +533,7 @@ class Process:
         min_rate = process_vector.loc[0, "min"]
         constant = process_vector.loc[0, "constant"]
 
+        # override any equation by changnging result variable after this line
         if self.code == "LAS":
             result = calc_laser(product_vector["length"], product_vector["width"],
                                 product_vector["thickness"], product_vector["no"])
@@ -546,7 +546,7 @@ class Process:
         print("initial result")
         # adding material handling factor
         print(f'weight = {product_vector["weight"]}')
-        material_handling_time = product_vector["weight"]*0.001/60
+        material_handling_time = product_vector["weight"]*0.0001/60
         print(f"material handling time:{material_handling_time}")
         result_after_material_handling = 1 / \
             ((1/result_after_allowance) + material_handling_time)

@@ -66,6 +66,14 @@ def main():
 @xw.func
 def get_route_data():
     sheet = wb.sheets.active
+    sheet.range("A4:BC205").value = ""
+    sheet.range("A1:G205").color = None
+    for col in sheet.range("H1:be205").columns:
+        if (col.column - 3) % 5 == 0:
+            col.color = (0, 0, 0)  # Set skipped columns to black
+        else:
+            col.color = None  # Set non-skipped columns to default color
+
     parent = sheet.range("A2").value
     for bom in lst_of_bom_obj:
         if float(bom.top_parent) == float(parent):
@@ -88,6 +96,9 @@ def get_item_data():
     global all_route_df
     active_sheet = wb.sheets.active
     active_sheet_name = active_sheet.name
+    active_sheet.range("B4:R10000").value = ""
+    active_sheet.range("B4:R10000").color = None
+
     # get routing after
     sheet = wb.sheets[f"Item{active_sheet_name[-1]}"]
     route = sheet.range("A3:BD203").options(

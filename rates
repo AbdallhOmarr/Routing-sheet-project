@@ -22,6 +22,7 @@ IF(O3=500,VLOOKUP(L3,Sheet2!$C:$M,11,FALSE),"")))))))
 
 1/((10+((area/1000000)*16)))
 
+3600/((length/1000)+(perimeter/1000)+ (thickness/1000))
 
 =IFERROR(
 IF(OR(ISBLANK(K5),ISBLANK(L5)),"",
@@ -907,6 +908,7 @@ Operation Description	Operation Code	Resource Code	Index	Wip	m_units	l_units	lab
 								
 								
 								
+(0.1*width*5*60)/(length*no)
 								
 								
 								
@@ -926,7 +928,10 @@ Operation Description	Operation Code	Resource Code	Index	Wip	m_units	l_units	lab
 								
 								
 								
+3600/((((5/400)*thickness)+(weight*0.9)+(length+width)/1000*0.9)*no)
+		
 								
+(3600/((length/1000)*200+(width/1000)*200+(thickness/1000)*500))/no							
 								
 								
 								
@@ -936,7 +941,11 @@ Operation Description	Operation Code	Resource Code	Index	Wip	m_units	l_units	lab
 								
 								
 								
+3600/(((length/1000)*2+((thickness/1000)*17000)+no*500))
+3600/((length/1000)*50+(thickness/1000)*100+(no*250)+(diameter/1000)*50) - (3600/)
 								
+
+3600/((length/1000)*25+(thickness/1000)*300+(diameter/1000)*250)		
 								
 								
 								
@@ -13423,11 +13432,6 @@ Operation Description	Operation Code	Resource Code	Index	Wip	m_units	l_units	lab
 								
 								
 								
-								
-								
-								
-								
-								
-								
-								
+(3600/((length/1000)*25+(thickness/1000)*300+(diameter/1000)*250))/(no*0.3)
+							
 								
